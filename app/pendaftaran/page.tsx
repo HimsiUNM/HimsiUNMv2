@@ -5,8 +5,6 @@ import { supabase } from "@/lib/supabaseClient";
 export default function PendaftaranPage() {
   const kampusOptions = ["Margonda", "Jatiwaringin", "Rawamangun"];
   const tipeKelasOptions = ["Reguler", "Karyawan"];
-  const departmentOptions = ["Humas", "PSDM", "PUBDOC", "BIKRAF", "LITBANG"];
-  const posisiOptions = ["Koordinator", "Staf"];
 
   const [form, setForm] = useState({
     nama: "",
@@ -15,10 +13,6 @@ export default function PendaftaranPage() {
     asal_kampus: "",
     tipe_kelas: "",
     no_telp: "",
-    department_1: "",
-    department_2: "",
-    posisi_1: "",
-    posisi_2: "",
     tanggal_lahir: "",
     alamat_email: "",
   });
@@ -48,10 +42,6 @@ export default function PendaftaranPage() {
         asal_kampus: "",
         tipe_kelas: "",
         no_telp: "",
-        department_1: "",
-        department_2: "",
-        posisi_1: "",
-        posisi_2: "",
         tanggal_lahir: "",
         alamat_email: "",
       });
@@ -181,98 +171,6 @@ export default function PendaftaranPage() {
               className="border p-2 w-full rounded font-normal placeholder:text-gray-500 placeholder:opacity-30"
               required
             />
-          </div>
-
-          {/* Department 1 */}
-          <div>
-            <label className="block text-gray-800 font-medium mb-1">
-              Department 1 :
-            </label>
-            <select
-              name="department_1"
-              value={form.department_1}
-              onChange={handleChange}
-              className="border p-2 w-full rounded bg-white/50 backdrop-blur-sm font-normal text-gray-700"
-              required
-            >
-              <option value="" className="text-gray-400/50 italic">
-                Pilih Department 1
-              </option>
-              {departmentOptions.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Department 2 */}
-          <div>
-            <label className="block text-gray-800 font-medium mb-1">
-              Department 2 :
-            </label>
-            <select
-              name="department_2"
-              value={form.department_2}
-              onChange={handleChange}
-              className="border p-2 w-full rounded bg-white/50 backdrop-blur-sm font-normal text-gray-700"
-              required
-            >
-              <option value="" className="text-gray-400/50 italic">
-                Pilih Department 2
-              </option>
-              {departmentOptions.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Posisi 1 */}
-          <div>
-            <label className="block text-gray-800 font-medium mb-1">
-              Posisi 1 :
-            </label>
-            <select
-              name="posisi_1"
-              value={form.posisi_1}
-              onChange={handleChange}
-              className="border p-2 w-full rounded bg-white/50 backdrop-blur-sm font-normal text-gray-700"
-              required
-            >
-              <option value="" className="text-gray-400/50 italic">
-                Pilih Posisi 1
-              </option>
-              {posisiOptions.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Posisi 2 */}
-          <div>
-            <label className="block text-gray-800 font-medium mb-1">
-              Posisi 2 :
-            </label>
-            <select
-              name="posisi_2"
-              value={form.posisi_2}
-              onChange={handleChange}
-              className="border p-2 w-full rounded bg-white/50 backdrop-blur-sm font-normal text-gray-700"
-              required
-            >
-              <option value="" className="text-gray-400/50 italic">
-                Pilih Posisi 2
-              </option>
-              {posisiOptions.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
           </div>
 
           {/* Tanggal Lahir */}
