@@ -9,18 +9,18 @@ export default function PendaftaranPage() {
   const posisiOptions = ["Koordinator", "Staf"];
 
   const [form, setForm] = useState({
-    Nama: "",
-    NIM: "",
-    Semester: "",
-    Asal_Kampus: "",
-    Tipe_kelas: "",
-    No_telp: "",
-    Department_1: "",
-    Department_2: "",
-    Posisi_1: "",
-    Posisi_2: "",
-    Tanggal_lahir: "",
-    Alamat_Email: "",
+    nama: "",
+    nim: "",
+    semester: "",
+    asal_kampus: "",
+    tipe_kelas: "",
+    no_telp: "",
+    department_1: "",
+    department_2: "",
+    posisi_1: "",
+    posisi_2: "",
+    tanggal_lahir: "",
+    alamat_email: "",
   });
 
   const [showPopup, setShowPopup] = useState(false);
@@ -37,22 +37,23 @@ export default function PendaftaranPage() {
     e.preventDefault();
     const { error } = await supabase.from("pendaftar_himsi").insert([form]);
     if (error) {
+      console.log("Detail Error Supabase:", error);
       setPopupType("error");
     } else {
       setPopupType("success");
       setForm({
-        Nama: "",
-        NIM: "",
-        Semester: "",
-        Asal_Kampus: "",
-        Tipe_kelas: "",
-        No_telp: "",
-        Department_1: "",
-        Department_2: "",
-        Posisi_1: "",
-        Posisi_2: "",
-        Tanggal_lahir: "",
-        Alamat_Email: "",
+        nama: "",
+        nim: "",
+        semester: "",
+        asal_kampus: "",
+        tipe_kelas: "",
+        no_telp: "",
+        department_1: "",
+        department_2: "",
+        posisi_1: "",
+        posisi_2: "",
+        tanggal_lahir: "",
+        alamat_email: "",
       });
     }
     setShowPopup(true);
@@ -82,9 +83,9 @@ export default function PendaftaranPage() {
               Masukan Nama Lengkap :
             </label>
             <input
-              name="Nama"
+              name="nama"
               placeholder="Jane Doe"
-              value={form.Nama}
+              value={form.nama}
               onChange={handleChange}
               className="border p-2 w-full rounded font-normal placeholder:text-gray-500 placeholder:opacity-30"
               required
@@ -97,9 +98,9 @@ export default function PendaftaranPage() {
               Masukan NIM :
             </label>
             <input
-              name="NIM"
+              name="nim"
               placeholder="11233321"
-              value={form.NIM}
+              value={form.nim}
               onChange={handleChange}
               className="border p-2 w-full rounded font-normal placeholder:text-gray-500 placeholder:opacity-30"
               required
@@ -112,9 +113,9 @@ export default function PendaftaranPage() {
               Semester :
             </label>
             <input
-              name="Semester"
+              name="semester"
               placeholder="8"
-              value={form.Semester}
+              value={form.semester}
               onChange={handleChange}
               className="border p-2 w-full rounded font-normal placeholder:text-gray-500 placeholder:opacity-30"
               required
@@ -127,8 +128,8 @@ export default function PendaftaranPage() {
               Asal Kampus :
             </label>
             <select
-              name="Asal_Kampus"
-              value={form.Asal_Kampus}
+              name="asal_kampus"
+              value={form.asal_kampus}
               onChange={handleChange}
               className="border p-2 w-full rounded bg-white/50 backdrop-blur-sm font-normal text-gray-700"
               required
@@ -150,8 +151,8 @@ export default function PendaftaranPage() {
               Tipe Kelas :
             </label>
             <select
-              name="Tipe_kelas"
-              value={form.Tipe_kelas}
+              name="tipe_kelas"
+              value={form.tipe_kelas}
               onChange={handleChange}
               className="border p-2 w-full rounded bg-white/50 backdrop-blur-sm font-normal text-gray-700"
               required
@@ -173,9 +174,9 @@ export default function PendaftaranPage() {
               Nomor Telepon :
             </label>
             <input
-              name="No_telp"
+              name="no_telp"
               placeholder="083344212124"
-              value={form.No_telp}
+              value={form.no_telp}
               onChange={handleChange}
               className="border p-2 w-full rounded font-normal placeholder:text-gray-500 placeholder:opacity-30"
               required
@@ -188,8 +189,8 @@ export default function PendaftaranPage() {
               Department 1 :
             </label>
             <select
-              name="Department_1"
-              value={form.Department_1}
+              name="department_1"
+              value={form.department_1}
               onChange={handleChange}
               className="border p-2 w-full rounded bg-white/50 backdrop-blur-sm font-normal text-gray-700"
               required
@@ -211,8 +212,8 @@ export default function PendaftaranPage() {
               Department 2 :
             </label>
             <select
-              name="Department_2"
-              value={form.Department_2}
+              name="department_2"
+              value={form.department_2}
               onChange={handleChange}
               className="border p-2 w-full rounded bg-white/50 backdrop-blur-sm font-normal text-gray-700"
               required
@@ -234,8 +235,8 @@ export default function PendaftaranPage() {
               Posisi 1 :
             </label>
             <select
-              name="Posisi_1"
-              value={form.Posisi_1}
+              name="posisi_1"
+              value={form.posisi_1}
               onChange={handleChange}
               className="border p-2 w-full rounded bg-white/50 backdrop-blur-sm font-normal text-gray-700"
               required
@@ -257,8 +258,8 @@ export default function PendaftaranPage() {
               Posisi 2 :
             </label>
             <select
-              name="Posisi_2"
-              value={form.Posisi_2}
+              name="posisi_2"
+              value={form.posisi_2}
               onChange={handleChange}
               className="border p-2 w-full rounded bg-white/50 backdrop-blur-sm font-normal text-gray-700"
               required
@@ -280,9 +281,9 @@ export default function PendaftaranPage() {
               Tanggal Lahir :
             </label>
             <input
-              name="Tanggal_lahir"
+              name="tanggal_lahir"
               type="date"
-              value={form.Tanggal_lahir}
+              value={form.tanggal_lahir}
               onChange={handleChange}
               className="border p-2 w-full rounded font-normal text-gray-700"
               required
@@ -295,9 +296,9 @@ export default function PendaftaranPage() {
               Alamat Email :
             </label>
             <input
-              name="Alamat_Email"
+              name="alamat_email"
               placeholder="jane@gmail.com"
-              value={form.Alamat_Email}
+              value={form.alamat_email}
               onChange={handleChange}
               className="border p-2 w-full rounded font-normal placeholder:text-gray-500 placeholder:opacity-30"
               required
