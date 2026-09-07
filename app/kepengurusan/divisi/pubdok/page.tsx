@@ -293,7 +293,6 @@ export default function DivisiPubdokShowcase() {
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
       `}</style>
 
-      {/* Container dikembalikan ke max-w-5xl karena ruang di dalam kartu sudah lega */}
       <div className="mx-auto max-w-5xl">
         <h1 
           className="text-center text-4xl md:text-5xl" 
@@ -306,7 +305,6 @@ export default function DivisiPubdokShowcase() {
           Berikut enam orang yang menjalankannya, lengkap dengan frame tugas masing-masing.
         </p>
 
-        {/* Grid dikembalikan menjadi 3 kolom konsisten dengan PSDM */}
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {PUBDOK.map((member, i) => (
             <FilmCard 
