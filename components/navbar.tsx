@@ -110,7 +110,7 @@ const navLinks: NavLink[] = [
         icon: MessageSquare,
       },
       {
-        href: "/layanan/advokasi",
+        href: "https://www.nusamandiri.ac.id/",
         label: "Pusat Bantuan (Advokasi)",
         description: "Informasi UKT, Beasiswa & Bantuan",
         icon: ShieldQuestion,
