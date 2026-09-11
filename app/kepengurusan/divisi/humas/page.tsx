@@ -11,7 +11,21 @@ import {
   Instagram,
   Plus,
   Minus,
+  type LucideIcon,
 } from "lucide-react"
+
+interface HumasMember {
+  code: string
+  role: string
+  name: string
+  tanggalLahir: string
+  angkatan: string
+  instagram: string
+  photo: string
+  quote: string
+  focus: string[]
+  icon: LucideIcon
+}
 
 // Palet "kliping koran": putih kekuningan, tinta hitam pekat, aksen merah press.
 const TONE = {
@@ -25,14 +39,14 @@ const TONE = {
   accentSoft: "rgba(166, 37, 37, 0.10)",
 }
 
-const HUMAS = [
+const HUMAS: HumasMember[] = [
   {
     code: "HMS/01",
     role: "Ketua divisi",
-    name: "Nama Ketua",
+    name: "Karlos Nanriano S",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "karlosns_",
     photo: "",
     quote: "Memimpin arah komunikasi dan hubungan organisasi dengan pihak luar.",
     focus: ["Pengambilan keputusan", "Relasi eksternal", "Koordinasi lintas divisi"],
@@ -41,10 +55,10 @@ const HUMAS = [
   {
     code: "HMS/02",
     role: "Wakil ketua",
-    name: "Nama Wakil Ketua",
+    name: "M. Bagas Yudi P",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "mbgsyup",
     photo: "",
     quote: "Mendukung ketua dan mengawal kampanye komunikasi serta promosi kegiatan.",
     focus: ["Kampanye komunikasi", "Pengawasan promosi", "Backup ketua"],
@@ -53,10 +67,10 @@ const HUMAS = [
   {
     code: "HMS/03",
     role: "Sekretaris",
-    name: "Nama Sekretaris",
+    name: "Muhammad Ghiass Assabiq",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "mhdghiass",
     photo: "",
     quote: "Menjaga korespondensi, notulensi, dan dokumentasi resmi divisi.",
     focus: ["Notulensi rapat", "Korespondensi", "Arsip kegiatan"],
@@ -65,10 +79,10 @@ const HUMAS = [
   {
     code: "HMS/04",
     role: "Bendahara",
-    name: "Nama Bendahara",
+    name: "Naziah Halwah R",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "naziahalwaa",
     photo: "",
     quote: "Mengelola kas divisi serta menjalin kerja sama dengan sponsor dan mitra.",
     focus: ["Pengelolaan kas", "Kerja sama sponsor", "Laporan keuangan"],
@@ -77,10 +91,10 @@ const HUMAS = [
   {
     code: "HMS/05",
     role: "Staff humas",
-    name: "Nama Staff 1",
+    name: "Ashqal Ilham Syafatullah",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "ashqalilham",
     photo: "",
     quote: "Menjadi juru bicara dan penghubung media dalam berbagai kegiatan.",
     focus: ["Relasi media", "MC & juru bicara", "Undangan & kerja sama"],
@@ -89,10 +103,22 @@ const HUMAS = [
   {
     code: "HMS/06",
     role: "Staff humas",
-    name: "Nama Staff 2",
+    name: "Satria Shobbah Falah",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "shbbhflh_",
+    photo: "",
+    quote: "Menyebarluaskan informasi organisasi ke publik secara luas.",
+    focus: ["Penyebaran informasi", "Media sosial", "Jaringan publik"],
+    icon: Globe2,
+  },
+  {
+    code: "HMS/07",
+    role: "Staff humas",
+    name: "Farel Gustavito Rambe Anak Raja",
+    tanggalLahir: "Tanggal Lahir",
+    angkatan: "Angkatan",
+    instagram: "farel_gustavito",
     photo: "",
     quote: "Menyebarluaskan informasi organisasi ke publik secara luas.",
     focus: ["Penyebaran informasi", "Media sosial", "Jaringan publik"],
@@ -100,7 +126,7 @@ const HUMAS = [
   },
 ]
 
-function PhotoSlot({ member }: { member: (typeof HUMAS)[0] }) {
+function PhotoSlot({ member }: { member: HumasMember }) {
   const initials = member.name.split(" ").map((w) => w[0]).slice(0, 2).join("").toUpperCase()
 
   return (
@@ -135,7 +161,7 @@ function TornEdge({ flip = false }: { flip?: boolean }) {
   )
 }
 
-function ClippingCard({ member, isOpen, onToggle }: { member: (typeof HUMAS)[0]; isOpen: boolean; onToggle: () => void }) {
+function ClippingCard({ member, isOpen, onToggle }: { member: HumasMember; isOpen: boolean; onToggle: () => void }) {
   return (
     <div className="flex flex-col" style={{ backgroundColor: TONE.card, border: `1px solid ${TONE.ink}` }}>
       <TornEdge />
@@ -166,24 +192,29 @@ function ClippingCard({ member, isOpen, onToggle }: { member: (typeof HUMAS)[0];
           </div>
         </div>
 
-        <div className="mt-4 flex flex-wrap items-center gap-4 border-t pt-3" style={{ borderColor: `${TONE.rule}` }}>
-          <div>
-            <p className="text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
-              Tanggal Lahir
-            </p>
-            <p className="text-sm" style={{ color: TONE.ink }}>{member.tanggalLahir}</p>
-          </div>
-          <div>
-            <p className="text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
-              Angkatan
-            </p>
-            <p className="text-sm" style={{ color: TONE.ink }}>{member.angkatan}</p>
+        {/* Baris info: flex-nowrap supaya badge Instagram tetap sejajar horizontal,
+            tidak turun ke bawah walau kartu sempit. Grup tanggal+angkatan yang
+            menyusut/truncate duluan kalau ruang kurang. */}
+        <div className="mt-4 flex flex-nowrap items-center gap-3 border-t pt-3" style={{ borderColor: `${TONE.rule}` }}>
+          <div className="flex min-w-0 flex-1 gap-4 overflow-hidden">
+            <div className="min-w-0">
+              <p className="whitespace-nowrap text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
+                Tanggal Lahir
+              </p>
+              <p className="truncate text-sm" style={{ color: TONE.ink }}>{member.tanggalLahir}</p>
+            </div>
+            <div className="min-w-0">
+              <p className="whitespace-nowrap text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
+                Angkatan
+              </p>
+              <p className="truncate text-sm" style={{ color: TONE.ink }}>{member.angkatan}</p>
+            </div>
           </div>
           <a
             href={`https://instagram.com/${member.instagram}`}
             target="_blank"
             rel="noreferrer"
-            className="ml-auto flex items-center gap-1.5 px-2.5 py-1 text-xs"
+            className="flex shrink-0 items-center gap-1.5 px-2.5 py-1 text-xs"
             style={{ border: `1px solid ${TONE.accent}`, color: TONE.accent, backgroundColor: TONE.accentSoft, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
           >
             <Instagram className="h-3.5 w-3.5" />
@@ -252,7 +283,7 @@ export default function DivisiHumasShowcase() {
         </h1>
         <p className="text-center mx-auto mt-3 max-w-xl text-base leading-relaxed" style={{ color: TONE.inkMuted }}>
           Divisi Humas menjaga komunikasi organisasi dengan dunia luar. Berikut
-          enam orang yang menjalankannya, lengkap dengan kliping tugas masing-masing.
+          para anggota yang menjalankannya, lengkap dengan kliping tugas masing-masing.
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

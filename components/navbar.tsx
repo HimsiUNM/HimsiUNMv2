@@ -258,7 +258,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center gap-2 group">
             <div
-              className={`rounded-lg overflow-hidden ring-1 ring-gray-200 group-hover:ring-primary/40 transition-all duration-300 ${
+              className={`rounded-lg overflow-hidden group-hover:ring-primary/40 transition-all duration-300 ${
                 isScrolled ? "w-8 h-8 md:w-9 md:h-9" : "w-10 h-10 md:w-12 md:h-12"
               }`}
             >

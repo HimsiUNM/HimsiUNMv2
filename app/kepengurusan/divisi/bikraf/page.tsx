@@ -11,7 +11,21 @@ import {
   Instagram,
   Plus,
   Minus,
+  type LucideIcon,
 } from "lucide-react"
+
+interface BikrafMember {
+  code: string
+  role: string
+  name: string
+  tanggalLahir: string
+  angkatan: string
+  instagram: string
+  photo: string
+  quote: string
+  focus: string[]
+  icon: LucideIcon
+}
 
 // Palet "nota usaha": kertas krem pucat, tinta stempel merah bata.
 const TONE = {
@@ -25,14 +39,14 @@ const TONE = {
   accentSoft: "rgba(176, 71, 44, 0.12)",
 }
 
-const BIKRAF = [
+const BIKRAF: BikrafMember[] = [
   {
     code: "BKF/01",
     role: "Ketua divisi",
-    name: "Nama Ketua",
+    name: "Ayu Febriyanti",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "pisces_girl_27",
     photo: "",
     quote:
       "Memimpin arah bisnis dan ekonomi kreatif divisi, dari ide sampai eksekusi.",
@@ -42,10 +56,10 @@ const BIKRAF = [
   {
     code: "BKF/02",
     role: "Wakil ketua",
-    name: "Nama Wakil Ketua",
+    name: "Nuraeni",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "aeenll",
     photo: "",
     quote: "Mendukung ketua dan mengawal kampanye promosi serta eksekusi penjualan.",
     focus: ["Kampanye promosi", "Pengawasan penjualan", "Backup ketua"],
@@ -53,35 +67,35 @@ const BIKRAF = [
   },
   {
     code: "BKF/03",
-    role: "Sekretaris",
-    name: "Nama Sekretaris",
-    tanggalLahir: "Tanggal Lahir",
-    angkatan: "Angkatan",
-    instagram: "username",
-    photo: "",
-    quote: "Menjaga dokumentasi, identitas visual, dan komunikasi resmi divisi.",
-    focus: ["Notulensi rapat", "Identitas visual", "Arsip kegiatan"],
-    icon: Palette,
-  },
-  {
-    code: "BKF/04",
     role: "Bendahara",
-    name: "Nama Bendahara",
+    name: "Athirah",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "thrumieee",
     photo: "",
     quote: "Mengelola dan melaporkan seluruh arus kas serta anggaran divisi.",
     focus: ["Pengelolaan kas", "Laporan keuangan", "Kalkulasi harga jual"],
     icon: CircleDollarSign,
   },
   {
-    code: "BKF/05",
-    role: "Staff bikraf",
-    name: "Nama Staff 1",
+    code: "BKF/04",
+    role: "Marketing",
+    name: "Syva",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "syvaalviana",
+    photo: "",
+    quote: "Menjaga dokumentasi, identitas visual, dan komunikasi resmi divisi.",
+    focus: ["Notulensi rapat", "Identitas visual", "Arsip kegiatan"],
+    icon: Palette,
+  },
+  {
+    code: "BKF/05",
+    role: "Staff bikraf",
+    name: "Sisilia",
+    tanggalLahir: "Tanggal Lahir",
+    angkatan: "Angkatan",
+    instagram: "ssiliarmdhanii_",
     photo: "",
     quote: "Mengembangkan ide produk dan peluang usaha baru bagi divisi.",
     focus: ["Riset produk", "Ide usaha", "Pengembangan konsep"],
@@ -90,10 +104,22 @@ const BIKRAF = [
   {
     code: "BKF/06",
     role: "Staff bikraf",
-    name: "Nama Staff 2",
+    name: "Diana",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "diannaasf",
+    photo: "",
+    quote: "Menjalankan operasional penjualan dan menjaga hubungan dengan pembeli.",
+    focus: ["Operasional jualan", "Layanan pembeli", "Promosi produk"],
+    icon: ShoppingBag,
+  },
+  {
+    code: "BKF/07",
+    role: "Staff bikraf",
+    name: "Ovivah",
+    tanggalLahir: "Tanggal Lahir",
+    angkatan: "Angkatan",
+    instagram: "ovivahdwltfa",
     photo: "",
     quote: "Menjalankan operasional penjualan dan menjaga hubungan dengan pembeli.",
     focus: ["Operasional jualan", "Layanan pembeli", "Promosi produk"],
@@ -101,7 +127,7 @@ const BIKRAF = [
   },
 ]
 
-function PhotoSlot({ member }: { member: (typeof BIKRAF)[0] }) {
+function PhotoSlot({ member }: { member: BikrafMember }) {
   const initials = member.name
     .split(" ")
     .map((w) => w[0])
@@ -141,7 +167,7 @@ function PhotoSlot({ member }: { member: (typeof BIKRAF)[0] }) {
   )
 }
 
-function ReceiptCard({ member, isOpen, onToggle }: { member: (typeof BIKRAF)[0]; isOpen: boolean; onToggle: () => void }) {
+function ReceiptCard({ member, isOpen, onToggle }: { member: BikrafMember; isOpen: boolean; onToggle: () => void }) {
   return (
     <div className="relative flex flex-col" style={{ backgroundColor: TONE.card, border: `1px solid ${TONE.rule}` }}>
       {/* Gerigi sobekan atas ala kertas nota (garis putus-putus perforasi) */}
@@ -294,7 +320,7 @@ export default function DivisiBikrafShowcase() {
         </h1>
         <p className="text-center mx-auto mt-3 max-w-xl text-base leading-relaxed" style={{ color: TONE.inkMuted }}>
           Divisi Bikraf menjalankan roda usaha dan ide kreatif organisasi. Berikut
-          enam orang yang mengelolanya, lengkap dengan rincian tugas masing-masing.
+          para anggota yang mengelolanya, lengkap dengan rincian tugas masing-masing.
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

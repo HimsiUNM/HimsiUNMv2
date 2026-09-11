@@ -11,7 +11,21 @@ import {
   Instagram,
   Plus,
   Minus,
+  type LucideIcon,
 } from "lucide-react"
+
+interface LitbangMember {
+  code: string
+  role: string
+  name: string
+  tanggalLahir: string
+  angkatan: string
+  instagram: string
+  photo: string
+  quote: string
+  focus: string[]
+  icon: LucideIcon
+}
 
 // Palet "buku catatan riset": kertas hangat, tinta gelap, satu aksen ochre.
 const TONE = {
@@ -30,14 +44,14 @@ const SERIF = "'Fraunces', 'Georgia', serif"
 
 // Ganti `photo` dengan URL foto masing-masing orang kalau sudah ada.
 // Kalau `photo` kosong, kartu otomatis menampilkan slot foto berisi inisial.
-const LITBANG = [
+const LITBANG: LitbangMember[] = [
   {
     code: "LTB/01",
     role: "Ketua divisi",
-    name: "Nama Ketua",
+    name: "Rizqi Fauzi",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "rizqifau__",
     photo: "",
     quote:
       "Memimpin arah riset, strategi, dan koordinasi seluruh program kerja divisi.",
@@ -47,10 +61,10 @@ const LITBANG = [
   {
     code: "LTB/02",
     role: "Wakil ketua",
-    name: "Nama Wakil Ketua",
+    name: "Zaaxy Aidil Pikri",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "zxxy.in",
     photo: "",
     quote: "Mendukung ketua dan turun tangan langsung mengawal eksekusi program.",
     focus: ["Eksekusi program", "Pengawasan progres", "Backup ketua"],
@@ -59,10 +73,10 @@ const LITBANG = [
   {
     code: "LTB/03",
     role: "Sekretaris",
-    name: "Nama Sekretaris",
+    name: "Mariq Akbar Prayitno",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "mariq_akbr",
     photo: "",
     quote: "Menjaga alur administrasi, dokumentasi, dan komunikasi resmi divisi.",
     focus: ["Notulensi rapat", "Surat & dokumen", "Arsip kegiatan"],
@@ -83,10 +97,10 @@ const LITBANG = [
   {
     code: "LTB/05",
     role: "Staff litbang",
-    name: "Nama Staff 1",
+    name: "Sabrina Kartika",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "iluvcat9",
     photo: "",
     quote: "Turun langsung mengeksekusi riset dan pengembangan program kerja.",
     focus: ["Riset lapangan", "Pengembangan konten", "Dukungan teknis"],
@@ -95,10 +109,22 @@ const LITBANG = [
   {
     code: "LTB/06",
     role: "Staff litbang",
-    name: "Nama Staff 2",
+    name: "Khoirul Mustaqim",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "k_4kim",
+    photo: "",
+    quote: "Membantu menjalankan riset, uji coba, dan dokumentasi hasil kerja divisi.",
+    focus: ["Uji coba program", "Dokumentasi hasil", "Kolaborasi tim"],
+    icon: ClipboardList,
+  },
+  {
+    code: "LTB/07",
+    role: "Staff litbang",
+    name: "Kurnia Rizqi Cipta Saputra",
+    tanggalLahir: "Tanggal Lahir",
+    angkatan: "Angkatan",
+    instagram: "kurniarizqi_cs",
     photo: "",
     quote: "Membantu menjalankan riset, uji coba, dan dokumentasi hasil kerja divisi.",
     focus: ["Uji coba program", "Dokumentasi hasil", "Kolaborasi tim"],
@@ -113,7 +139,7 @@ function getInitials(name: string) {
   return (parts[0][0] + parts[1][0]).toUpperCase()
 }
 
-function PhotoSlot({ member }: { member: (typeof LITBANG)[0] }) {
+function PhotoSlot({ member }: { member: LitbangMember }) {
   return (
     <div
       className="relative h-28 w-24 shrink-0 overflow-hidden"
@@ -143,7 +169,7 @@ function PhotoSlot({ member }: { member: (typeof LITBANG)[0] }) {
   )
 }
 
-function LedgerCard({ member, isOpen, onToggle }: { member: (typeof LITBANG)[0]; isOpen: boolean; onToggle: () => void }) {
+function LedgerCard({ member, isOpen, onToggle }: { member: LitbangMember; isOpen: boolean; onToggle: () => void }) {
   return (
     <div
       className="flex flex-col overflow-hidden transition-colors duration-200"
@@ -274,7 +300,7 @@ export default function DivisiLitbangShowcase() {
         </h1>
         <p className="text-center mx-auto mt-3 max-w-xl text-base leading-relaxed" style={{ color: TONE.inkMuted }}>
           Divisi Litbang menjaga arah riset dan eksekusi program kerja. Berikut
-          enam orang yang menjalankannya, lengkap dengan berkas tugas masing-masing.
+          para anggota yang menjalankannya, lengkap dengan berkas tugas masing-masing.
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

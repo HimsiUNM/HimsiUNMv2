@@ -12,9 +12,16 @@ interface DepartmentCardProps {
 
 export function DepartmentCard({ data, index = 0, onSelect }: DepartmentCardProps) {
   return (
-    <motion.button
-      type="button"
+    <motion.div
+      role="button"
+      tabIndex={0}
       onClick={onSelect}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect?.();
+        }
+      }}
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -34,6 +41,6 @@ export function DepartmentCard({ data, index = 0, onSelect }: DepartmentCardProp
       <p className="mt-1.5 line-clamp-2 text-[11px] leading-snug text-muted-foreground sm:text-xs">
         {data.description}
       </p>
-    </motion.button>
+    </motion.div>
   );
 }

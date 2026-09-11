@@ -19,9 +19,16 @@ export function PositionCard({
   onSelect,
 }: PositionCardProps) {
   return (
-    <motion.button
-      type="button"
+    <motion.div
+      role="button"
+      tabIndex={0}
       onClick={onSelect}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect?.();
+        }
+      }}
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -63,6 +70,6 @@ export function PositionCard({
       <p className="mt-1 text-center text-xs leading-tight text-muted-foreground sm:text-sm">
         {data.name}
       </p>
-    </motion.button>
+    </motion.div>
   );
 }

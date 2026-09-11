@@ -11,7 +11,21 @@ import {
   Instagram,
   Plus,
   Minus,
+  type LucideIcon,
 } from "lucide-react"
+
+interface PsdmMember {
+  code: string
+  role: string
+  name: string
+  tanggalLahir: string
+  angkatan: string
+  instagram: string
+  photo: string
+  quote: string
+  focus: string[]
+  icon: LucideIcon
+}
 
 // Palet "kartu anggota": biru dongker muted + krem, kesan formal kayak ID card kantor.
 const TONE = {
@@ -25,14 +39,14 @@ const TONE = {
   accentSoft: "rgba(31, 78, 121, 0.10)",
 }
 
-const PSDM = [
+const PSDM: PsdmMember[] = [
   {
     code: "PSDM/01",
     role: "Ketua divisi",
-    name: "Nama Ketua",
+    name: "Akhdan Faqih Athallah",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "hyy_adan",
     photo: "",
     quote: "Memimpin arah pengembangan anggota dan kaderisasi organisasi.",
     focus: ["Pengambilan keputusan", "Kaderisasi", "Koordinasi lintas divisi"],
@@ -41,10 +55,10 @@ const PSDM = [
   {
     code: "PSDM/02",
     role: "Wakil ketua",
-    name: "Nama Wakil Ketua",
+    name: "Naysha Syifa Ardana",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "_syshdnaaa",
     photo: "",
     quote: "Mendukung ketua dan mengawal pelaksanaan program pengembangan.",
     focus: ["Eksekusi program", "Pengawasan progres", "Backup ketua"],
@@ -53,10 +67,10 @@ const PSDM = [
   {
     code: "PSDM/03",
     role: "Sekretaris",
-    name: "Nama Sekretaris",
+    name: "Saskia Adiza Saputra",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "saski.adz",
     photo: "",
     quote: "Menjaga arsip identitas, data keanggotaan, dan komunikasi resmi divisi.",
     focus: ["Arsip keanggotaan", "Surat & dokumen", "Notulensi rapat"],
@@ -65,10 +79,10 @@ const PSDM = [
   {
     code: "PSDM/04",
     role: "Bendahara",
-    name: "Nama Bendahara",
+    name: "Lailla Azahro",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "lailaazhr13_",
     photo: "",
     quote: "Mengelola kas serta memastikan pencapaian target anggaran divisi.",
     focus: ["Pengelolaan kas", "Target anggaran", "Laporan keuangan"],
@@ -77,10 +91,10 @@ const PSDM = [
   {
     code: "PSDM/05",
     role: "Staff psdm",
-    name: "Nama Staff 1",
+    name: "Monika Ratu Liuu",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "monikaratu47",
     photo: "",
     quote: "Merancang dan menjalankan pelatihan untuk pengembangan anggota.",
     focus: ["Pelatihan anggota", "Modul pengembangan", "Evaluasi kompetensi"],
@@ -89,18 +103,42 @@ const PSDM = [
   {
     code: "PSDM/06",
     role: "Staff psdm",
-    name: "Nama Staff 2",
+    name: "Nur Fadilah",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "dillahhf",
     photo: "",
     quote: "Menjaga keakraban dan hubungan antaranggota di dalam organisasi.",
     focus: ["Keakraban tim", "Kegiatan internal", "Pendampingan anggota"],
     icon: Handshake,
   },
+  {
+    code: "PSDM/07",
+    role: "Staff psdm",
+    name: "Muhammad Ahsan Rizqi",
+    tanggalLahir: "Tanggal Lahir",
+    angkatan: "Angkatan",
+    instagram: "ahsanrizqi",
+    photo: "",
+    quote: "Menjaga keakraban dan hubungan antaranggota di dalam organisasi.",
+    focus: ["Keakraban tim", "Kegiatan internal", "Pendampingan anggota"],
+    icon: Handshake,
+  },
+  {
+    code: "PSDM/08",
+    role: "Staff psdm",
+    name: "Muhammad Rifqi Ramadhan",
+    tanggalLahir: "Tanggal Lahir",
+    angkatan: "Angkatan",
+    instagram: "rittx.scnd",
+    photo: "",
+    quote: "Merancang dan menjalankan pelatihan untuk pengembangan anggota.",
+    focus: ["Pelatihan anggota", "Modul pengembangan", "Evaluasi kompetensi"],
+    icon: GraduationCap,
+  },
 ]
 
-function PhotoSlot({ member }: { member: (typeof PSDM)[0] }) {
+function PhotoSlot({ member }: { member: PsdmMember }) {
   const initials = member.name.split(" ").map((w) => w[0]).slice(0, 2).join("").toUpperCase()
 
   return (
@@ -128,7 +166,7 @@ function PhotoSlot({ member }: { member: (typeof PSDM)[0] }) {
   )
 }
 
-function BadgeCard({ member, isOpen, onToggle }: { member: (typeof PSDM)[0]; isOpen: boolean; onToggle: () => void }) {
+function BadgeCard({ member, isOpen, onToggle }: { member: PsdmMember; isOpen: boolean; onToggle: () => void }) {
   return (
     <div className="flex flex-col overflow-hidden rounded-md" style={{ backgroundColor: TONE.card, border: `1px solid ${TONE.rule}` }}>
       {/* Tali gantungan */}
@@ -157,24 +195,29 @@ function BadgeCard({ member, isOpen, onToggle }: { member: (typeof PSDM)[0]; isO
           </div>
         </div>
 
-        <div className="mt-4 flex flex-wrap items-center gap-4 border-t pt-3" style={{ borderColor: `${TONE.rule}66` }}>
-          <div>
-            <p className="text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
-              Tanggal Lahir
-            </p>
-            <p className="text-sm" style={{ color: TONE.ink }}>{member.tanggalLahir}</p>
-          </div>
-          <div>
-            <p className="text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
-              Angkatan
-            </p>
-            <p className="text-sm" style={{ color: TONE.ink }}>{member.angkatan}</p>
+        {/* Baris info: flex-nowrap supaya badge Instagram tetap sejajar horizontal,
+            tidak turun ke bawah walau kartu sempit. Grup tanggal+angkatan yang
+            menyusut/truncate duluan kalau ruang kurang. */}
+        <div className="mt-4 flex flex-nowrap items-center gap-3 border-t pt-3" style={{ borderColor: `${TONE.rule}66` }}>
+          <div className="flex min-w-0 flex-1 gap-4 overflow-hidden">
+            <div className="min-w-0">
+              <p className="whitespace-nowrap text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
+                Tanggal Lahir
+              </p>
+              <p className="truncate text-sm" style={{ color: TONE.ink }}>{member.tanggalLahir}</p>
+            </div>
+            <div className="min-w-0">
+              <p className="whitespace-nowrap text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
+                Angkatan
+              </p>
+              <p className="truncate text-sm" style={{ color: TONE.ink }}>{member.angkatan}</p>
+            </div>
           </div>
           <a
             href={`https://instagram.com/${member.instagram}`}
             target="_blank"
             rel="noreferrer"
-            className="ml-auto flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-sm"
+            className="flex shrink-0 items-center gap-1.5 px-2.5 py-1 text-xs rounded-sm"
             style={{ border: `1px solid ${TONE.accent}`, color: TONE.accent, backgroundColor: TONE.accentSoft, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
           >
             <Instagram className="h-3.5 w-3.5" />
@@ -246,7 +289,7 @@ export default function DivisiPsdmShowcase() {
         </h1>
         <p className="text-center mx-auto mt-3 max-w-xl text-base leading-relaxed" style={{ color: TONE.inkMuted }}>
           Divisi PSDM merawat pertumbuhan anggota lewat pelatihan dan kaderisasi.
-          Berikut enam orang yang menjalankannya, lengkap dengan kartu profil masing-masing.
+          Berikut para anggota yang menjalankannya, lengkap dengan kartu profil masing-masing.
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

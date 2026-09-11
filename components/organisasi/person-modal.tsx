@@ -13,8 +13,8 @@ export interface PersonDetail {
   group?: string;
   image: string;
   bio?: string;
-  email?: string;
   instagram?: string;
+  instagramUrl?: string;
 }
 
 interface PersonModalProps {
@@ -105,24 +105,25 @@ export function PersonModal({ person, onClose }: PersonModalProps) {
                 </p>
               )}
 
-              {(person.email || person.instagram) && (
+              {person.instagram && (
                 <div className="mt-5 w-full space-y-2 border-t border-border pt-4 text-left text-sm">
-                  {person.email && (
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Email</span>
-                      <span className="truncate text-card-foreground">
-                        {person.email}
-                      </span>
-                    </div>
-                  )}
-                  {person.instagram && (
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Instagram</span>
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-muted-foreground">Instagram</span>
+                    {person.instagramUrl ? (
+                      <a
+                        href={person.instagramUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="truncate text-card-foreground hover:text-primary hover:underline"
+                      >
+                        {person.instagram}
+                      </a>
+                    ) : (
                       <span className="truncate text-card-foreground">
                         {person.instagram}
                       </span>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               )}
             </div>
