@@ -4,49 +4,137 @@ import { supabase } from "@/lib/supabaseClient";
 
 export default function PendaftaranPage() {
   const kampusOptions = ["Margonda", "Jatiwaringin", "Rawamangun"];
-  const tipeKelasOptions = ["Reguler", "Karyawan"];
 
   const [form, setForm] = useState({
     nama: "",
     nim: "",
     semester: "",
     asal_kampus: "",
-    tipe_kelas: "",
+    kelas: "",
     no_telp: "",
-    tanggal_lahir: "",
-    alamat_email: "",
+    pengalaman_organisasi: "",
+    kontribusi: "",
+    bersedia_interview: "Ya",
+    bersedia_komitmen: "Ya",
   });
 
+  const [portofolioFile, setPortofolioFile] = useState<File | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [popupType, setPopupType] = useState<"success" | "error" | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] ?? null;
+
+    if (file) {
+      // Basic guardrails: max 10MB, common file types only
+      const maxSizeBytes = 10 * 1024 * 1024;
+      const allowedTypes = [
+        "application/pdf",
+        "image/png",
+        "image/jpeg",
+        "application/zip",
+      ];
+
+      if (file.size > maxSizeBytes) {
+        setErrorMessage("Ukuran file portofolio maksimal 10MB.");
+        setPopupType("error");
+        setShowPopup(true);
+        e.target.value = "";
+        setPortofolioFile(null);
+        return;
+      }
+
+      if (!allowedTypes.includes(file.type)) {
+        setErrorMessage("Format file harus PDF, JPG, PNG, atau ZIP.");
+        setPopupType("error");
+        setShowPopup(true);
+        e.target.value = "";
+        setPortofolioFile(null);
+        return;
+      }
+    }
+
+    setPortofolioFile(file);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { error } = await supabase.from("pendaftar_himsi").insert([form]);
-    if (error) {
-      console.log("Detail Error Supabase:", error);
-      setPopupType("error");
-    } else {
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      let portofolioUrl: string | null = null;
+
+      // 1. Upload the portfolio file to Supabase Storage (if provided)
+      if (portofolioFile) {
+        const fileExt = portofolioFile.name.split(".").pop();
+        const safeNim = form.nim.replace(/[^a-zA-Z0-9]/g, "") || "unknown";
+        const fileName = `${safeNim}-${Date.now()}.${fileExt}`;
+        const filePath = `portofolio/${fileName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from("portofolio-himsi") // <-- create this bucket in Supabase Storage
+          .upload(filePath, portofolioFile, {
+            cacheControl: "3600",
+            upsert: false,
+          });
+
+        if (uploadError) {
+          console.log("Upload Error Supabase:", uploadError);
+          throw new Error("Gagal mengunggah file portofolio: " + uploadError.message);
+        }
+
+        // 2. Get the public URL of the uploaded file
+        const { data: publicUrlData } = supabase.storage
+          .from("portofolio-himsi")
+          .getPublicUrl(filePath);
+
+        portofolioUrl = publicUrlData.publicUrl;
+      }
+
+      // 3. Insert the form row, storing the uploaded file's URL
+      const { error: insertError } = await supabase
+        .from("pendaftar_himsi")
+        .insert([{ ...form, portofolio: portofolioUrl }]);
+
+      if (insertError) {
+        console.log("Detail Error Supabase:", insertError);
+        throw new Error("Gagal menyimpan data: " + insertError.message);
+      }
+
+      // Success: reset form
       setPopupType("success");
       setForm({
         nama: "",
         nim: "",
         semester: "",
         asal_kampus: "",
-        tipe_kelas: "",
+        kelas: "",
         no_telp: "",
-        tanggal_lahir: "",
-        alamat_email: "",
+        pengalaman_organisasi: "",
+        kontribusi: "",
+        bersedia_interview: "Ya",
+        bersedia_komitmen: "Ya",
       });
+      setPortofolioFile(null);
+      const fileInput = document.getElementById("portofolio-input") as HTMLInputElement | null;
+      if (fileInput) fileInput.value = "";
+    } catch (err: any) {
+      setPopupType("error");
+      setErrorMessage(err?.message || "Terjadi kesalahan. Silakan coba lagi.");
+    } finally {
+      setIsSubmitting(false);
+      setShowPopup(true);
     }
-    setShowPopup(true);
   };
 
   return (
@@ -58,19 +146,19 @@ export default function PendaftaranPage() {
       }}
     >
       <div className="absolute inset-0 bg-white/20 backdrop-blur-sm" />
-      <div className="relative z-10">
+      <div className="relative z-10 max-w-lg mx-auto px-4">
         <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">
           Form Pendaftaran HIMSI
         </h1>
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 max-w-md mx-auto bg-white/90 p-6 rounded-2xl shadow-lg"
+          className="space-y-4 bg-white/90 p-6 rounded-2xl shadow-lg"
         >
-          {/* Nama */}
+          {/* 1. Nama Lengkap */}
           <div>
             <label className="block text-gray-800 font-medium mb-1">
-              Masukan Nama Lengkap :
+              1. Nama Lengkap <span className="text-red-500">*</span>
             </label>
             <input
               name="nama"
@@ -82,10 +170,10 @@ export default function PendaftaranPage() {
             />
           </div>
 
-          {/* NIM */}
+          {/* 2. NIM */}
           <div>
             <label className="block text-gray-800 font-medium mb-1">
-              Masukan NIM :
+              2. NIM <span className="text-red-500">*</span>
             </label>
             <input
               name="nim"
@@ -97,14 +185,14 @@ export default function PendaftaranPage() {
             />
           </div>
 
-          {/* Semester */}
+          {/* 3. Semester */}
           <div>
             <label className="block text-gray-800 font-medium mb-1">
-              Semester :
+              3. Semester <span className="text-red-500">*</span>
             </label>
             <input
               name="semester"
-              placeholder="8"
+              placeholder="3"
               value={form.semester}
               onChange={handleChange}
               className="border p-2 w-full rounded font-normal placeholder:text-gray-500 placeholder:opacity-30"
@@ -112,10 +200,10 @@ export default function PendaftaranPage() {
             />
           </div>
 
-          {/* Asal Kampus */}
+          {/* 4. Asal Kampus */}
           <div>
             <label className="block text-gray-800 font-medium mb-1">
-              Asal Kampus :
+              4. Asal Kampus <span className="text-red-500">*</span>
             </label>
             <select
               name="asal_kampus"
@@ -135,33 +223,25 @@ export default function PendaftaranPage() {
             </select>
           </div>
 
-          {/* Tipe Kelas */}
+          {/* 5. Kelas */}
           <div>
             <label className="block text-gray-800 font-medium mb-1">
-              Tipe Kelas :
+              5. Kelas <span className="text-red-500">*</span>
             </label>
-            <select
-              name="tipe_kelas"
-              value={form.tipe_kelas}
+            <input
+              name="kelas"
+              placeholder="Contoh: 11.3A.10"
+              value={form.kelas}
               onChange={handleChange}
-              className="border p-2 w-full rounded bg-white/50 backdrop-blur-sm font-normal text-gray-700"
+              className="border p-2 w-full rounded font-normal placeholder:text-gray-500 placeholder:opacity-30"
               required
-            >
-              <option value="" className="text-gray-400/50 italic">
-                Pilih Tipe Kelas
-              </option>
-              {tipeKelasOptions.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
+            />
           </div>
 
-          {/* No Telp */}
+          {/* 6. No. Telepon */}
           <div>
             <label className="block text-gray-800 font-medium mb-1">
-              Nomor Telepon :
+              6. No. Telepon <span className="text-red-500">*</span>
             </label>
             <input
               name="no_telp"
@@ -173,41 +253,125 @@ export default function PendaftaranPage() {
             />
           </div>
 
-          {/* Tanggal Lahir */}
+          {/* 7. Pengalaman Organisasi */}
           <div>
             <label className="block text-gray-800 font-medium mb-1">
-              Tanggal Lahir :
+              7. Pengalaman Organisasi <span className="text-red-500">*</span>
             </label>
-            <input
-              name="tanggal_lahir"
-              type="date"
-              value={form.tanggal_lahir}
+            <textarea
+              name="pengalaman_organisasi"
+              rows={3}
+              placeholder="Tuliskan pengalaman organisasi kamu..."
+              value={form.pengalaman_organisasi}
               onChange={handleChange}
-              className="border p-2 w-full rounded font-normal text-gray-700"
+              className="border p-2 w-full rounded font-normal placeholder:text-gray-500 placeholder:opacity-30 resize-none"
               required
             />
           </div>
 
-          {/* Email */}
+          {/* 8. Kontribusi */}
           <div>
             <label className="block text-gray-800 font-medium mb-1">
-              Alamat Email :
+              8. Apa kontribusi yang ingin kamu berikan di HIMSI? <span className="text-red-500">*</span>
             </label>
-            <input
-              name="alamat_email"
-              placeholder="jane@gmail.com"
-              value={form.alamat_email}
+            <textarea
+              name="kontribusi"
+              rows={3}
+              placeholder="Tuliskan kontribusi kamu..."
+              value={form.kontribusi}
               onChange={handleChange}
-              className="border p-2 w-full rounded font-normal placeholder:text-gray-500 placeholder:opacity-30"
+              className="border p-2 w-full rounded font-normal placeholder:text-gray-500 placeholder:opacity-30 resize-none"
               required
             />
+          </div>
+
+          {/* 9. Portofolio - now a real file upload */}
+          <div>
+            <label className="block text-gray-800 font-medium mb-1">
+              9. Portofolio
+            </label>
+            <p className="text-xs text-gray-500 mb-1">
+              (Nilai tambah bagi departemen Pubdok dan Litbang). Unggah 1 file portofolio kamu (PDF/JPG/PNG/ZIP, maks 10MB).
+            </p>
+            <input
+              id="portofolio-input"
+              name="portofolio"
+              type="file"
+              accept=".pdf,.jpg,.jpeg,.png,.zip"
+              onChange={handleFileChange}
+              className="border p-2 w-full rounded font-normal text-gray-700 bg-white/50"
+            />
+            {portofolioFile && (
+              <p className="text-xs text-green-700 mt-1">
+                File terpilih: {portofolioFile.name}
+              </p>
+            )}
+          </div>
+
+          {/* 10. Bersedia Interview */}
+          <div>
+            <label className="block text-gray-800 font-medium mb-1">
+              10. Apakah kamu bersedia mengikuti interview? <span className="text-red-500">*</span>
+            </label>
+            <div className="flex gap-4 mt-1">
+              <label className="flex items-center gap-2 text-gray-700">
+                <input
+                  type="radio"
+                  name="bersedia_interview"
+                  value="Ya"
+                  checked={form.bersedia_interview === "Ya"}
+                  onChange={handleChange}
+                />
+                Ya
+              </label>
+              <label className="flex items-center gap-2 text-gray-700">
+                <input
+                  type="radio"
+                  name="bersedia_interview"
+                  value="Tidak"
+                  checked={form.bersedia_interview === "Tidak"}
+                  onChange={handleChange}
+                />
+                Tidak
+              </label>
+            </div>
+          </div>
+
+          {/* 11. Bersedia Komitmen */}
+          <div>
+            <label className="block text-gray-800 font-medium mb-1">
+              11. Apakah kamu bersedia berkomitmen selama 1 periode penuh kepengurusan HIMSI? <span className="text-red-500">*</span>
+            </label>
+            <div className="flex gap-4 mt-1">
+              <label className="flex items-center gap-2 text-gray-700">
+                <input
+                  type="radio"
+                  name="bersedia_komitmen"
+                  value="Ya"
+                  checked={form.bersedia_komitmen === "Ya"}
+                  onChange={handleChange}
+                />
+                Ya
+              </label>
+              <label className="flex items-center gap-2 text-gray-700">
+                <input
+                  type="radio"
+                  name="bersedia_komitmen"
+                  value="Tidak"
+                  checked={form.bersedia_komitmen === "Tidak"}
+                  onChange={handleChange}
+                />
+                Tidak
+              </label>
+            </div>
           </div>
 
           <button
             type="submit"
-            className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:shadow-lg transition-shadow"
+            disabled={isSubmitting}
+            className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:shadow-lg transition-shadow mt-4 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Submit
+            {isSubmitting ? "Mengirim..." : "Submit Pendaftaran"}
           </button>
         </form>
 
@@ -230,7 +394,7 @@ export default function PendaftaranPage() {
                     Gagal Menyimpan Data
                   </h2>
                   <p className="text-gray-600 mb-4">
-                    Silakan periksa koneksi internet atau coba lagi.
+                    {errorMessage || "Silakan periksa koneksi internet atau coba lagi."}
                   </p>
                 </>
               )}

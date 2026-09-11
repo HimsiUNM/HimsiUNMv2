@@ -115,6 +115,15 @@ export default function FilosofiLogoPage() {
           </p>
         </div>
 
+       {/* Logo Display */}
+        <div className="flex justify-center mb-16">
+          <img
+            src="/logohimsi2.png"
+            alt="Logo HIMSI Universitas Nusa Mandiri"
+            className="w-56 h-56 md:w-72 md:h-72 object-contain rounded-full"
+          />
+        </div>
+
         {/* Color Palette Section */}
         <section className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-black">

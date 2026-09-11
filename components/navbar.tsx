@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
   Menu,
@@ -163,7 +163,6 @@ export default function Navbar() {
   const [isHidden, setIsHidden] = useState(false); // navbar disembunyikan atau nggak
   const lastScrollY = useRef(0);
 
-  const router = useRouter();
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -225,6 +224,8 @@ export default function Navbar() {
     setMobileSubmenu(null);
     setIsOpen(false);
   }, [pathname]);
+
+  const isExternal = (href: string) => href.startsWith("http");
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -319,6 +320,9 @@ export default function Navbar() {
                             <Link
                               key={child.href}
                               href={child.href}
+                              {...(isExternal(child.href)
+                                ? { target: "_blank", rel: "noopener noreferrer" }
+                                : {})}
                               aria-current={active ? "page" : undefined}
                               className={`flex items-start gap-3 px-4 py-2.5 transition-colors ${
                                 active
@@ -384,6 +388,9 @@ export default function Navbar() {
                                     <Link
                                       key={grand.href}
                                       href={grand.href}
+                                      {...(isExternal(grand.href)
+                                        ? { target: "_blank", rel: "noopener noreferrer" }
+                                        : {})}
                                       aria-current={gActive ? "page" : undefined}
                                       className={`block px-3 py-1.5 rounded-md text-sm transition-colors ${
                                         gActive
@@ -411,6 +418,9 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  {...(isExternal(link.href)
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   aria-current={isActive(link.href) ? "page" : undefined}
                   className={`relative px-2.5 xl:px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                     isActive(link.href)
@@ -429,13 +439,13 @@ export default function Navbar() {
 
           {/* CTA Button + Mobile Button */}
           <div className="flex items-center gap-3">
-            <button
-              onClick={() => router.push("/pendaftaran")}
+            <Link
+              href="/pendaftaran"
               className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:shadow-lg hover:brightness-110 active:scale-95 transition-all"
             >
               Gabung Sekarang
               <ArrowRight size={15} />
-            </button>
+            </Link>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -487,6 +497,9 @@ export default function Navbar() {
                             <Link
                               key={child.href}
                               href={child.href}
+                              {...(isExternal(child.href)
+                                ? { target: "_blank", rel: "noopener noreferrer" }
+                                : {})}
                               aria-current={active ? "page" : undefined}
                               className={`flex items-center gap-2.5 px-3 py-2 rounded-md text-sm transition-colors ${
                                 active
@@ -537,6 +550,9 @@ export default function Navbar() {
                                     <Link
                                       key={grand.href}
                                       href={grand.href}
+                                      {...(isExternal(grand.href)
+                                        ? { target: "_blank", rel: "noopener noreferrer" }
+                                        : {})}
                                       aria-current={gActive ? "page" : undefined}
                                       className={`block px-3 py-1.5 rounded-md text-sm transition-colors ${
                                         gActive
@@ -565,6 +581,9 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  {...(isExternal(link.href)
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   aria-current={isActive(link.href) ? "page" : undefined}
                   className={`block px-3 py-2.5 rounded-md text-sm font-medium transition-colors ${
                     isActive(link.href)
@@ -578,13 +597,14 @@ export default function Navbar() {
               )
             )}
 
-            <button
-              onClick={() => router.push("/pendaftaran")}
+            <Link
+              href="/pendaftaran"
+              onClick={() => setIsOpen(false)}
               className="w-full flex items-center justify-center gap-1.5 mt-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:shadow-lg transition-shadow"
             >
               Gabung Sekarang
               <ArrowRight size={15} />
-            </button>
+            </Link>
           </div>
         )}
       </div>

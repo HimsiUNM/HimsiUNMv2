@@ -4,6 +4,7 @@ import type React from "react"
 
 import { Mail, Phone, MapPin, Instagram, Linkedin, Youtube } from "lucide-react"
 import { useState } from "react"
+import { supabase } from "@/lib/supabaseClient"
 
 export default function Kontak() {
   const [formData, setFormData] = useState({
@@ -12,10 +13,33 @@ export default function Kontak() {
     pesan: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState("")
+
+  // Contact person / PIC per sie - ganti nama & nomor sesuai kepengurusan aktif
+  const contactPersons = [
+    { nama: "Nama CP", jabatan: "Humas", no_telp: "0812XXXXXXXX" },
+  ]
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    setFormData({ nama: "", email: "", pesan: "" })
+    setIsSubmitting(true)
+    setStatus("idle")
+    setErrorMessage("")
+
+    const { error } = await supabase.from("pesan_kontak").insert([formData])
+
+    if (error) {
+      console.log("Detail Error Supabase:", error)
+      setStatus("error")
+      setErrorMessage(error.message)
+    } else {
+      setStatus("success")
+      setFormData({ nama: "", email: "", pesan: "" })
+    }
+
+    setIsSubmitting(false)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -84,10 +108,20 @@ export default function Kontak() {
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-lg transition-shadow"
+                disabled={isSubmitting}
+                className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-lg transition-shadow disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Kirim Pesan
+                {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
               </button>
+
+              {status === "success" && (
+                <p className="text-green-600 text-sm text-center">Pesan berhasil terkirim. Terima kasih!</p>
+              )}
+              {status === "error" && (
+                <p className="text-red-600 text-sm text-center">
+                  Gagal mengirim pesan{errorMessage ? `: ${errorMessage}` : ". Silakan coba lagi."}
+                </p>
+              )}
             </form>
           </div>
 
@@ -112,11 +146,16 @@ export default function Kontak() {
                   </div>
                 </div>
 
+                {/* Contact Person per sie */}
                 <div className="flex items-start gap-4">
                   <Phone size={24} className="text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <p className="font-semibold text-gray-900">Telepon</p>
-                    <p className="text-gray-600">+62 21 XXXX XXXX</p>
+                    <p className="font-semibold text-gray-900">Contact Person (CP)</p>
+                    {contactPersons.map((cp) => (
+                      <p key={cp.no_telp} className="text-gray-600">
+                        {cp.nama} ({cp.jabatan}) — {cp.no_telp}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>
