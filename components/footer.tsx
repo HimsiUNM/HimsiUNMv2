@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Instagram, Youtube, Mail, MapPin } from "lucide-react"
+import { Instagram, Youtube, Mail, MapPin, Phone } from "lucide-react"
 
 const TENTANG_LINKS = [
   { label: "Sejarah HIMSI", href: "/tentang/sejarah" },
@@ -139,27 +139,45 @@ export default function Footer() {
           <FooterLinkList title="Layanan & Informasi" links={LAYANAN_INFO_LINKS} />
 
           <div id="kontak">
-            <h3 className="font-semibold mb-4">Kontak</h3>
-            <ul className="space-y-3 mb-4">
-              <li className="flex items-start gap-2.5 text-sm text-gray-400">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-gray-500" />
-                <span>Universitas Nusa Mandiri, Jakarta</span>
-              </li>
-              <li className="flex items-start gap-2.5 text-sm text-gray-400">
-                <Mail size={16} className="mt-0.5 shrink-0 text-gray-500" />
-                <a href="mailto:himsi@nusamandiri.ac.id" className="hover:text-primary transition-colors">
-                  himsi@nusamandiri.ac.id
-                </a>
-              </li>
-            </ul>
+  <h3 className="font-semibold mb-4">Kontak</h3>
+  <ul className="space-y-3 mb-4">
+    <li className="flex items-start gap-2.5 text-sm text-gray-400">
+      <MapPin size={16} className="mt-0.5 shrink-0 text-gray-500" />
+      <a
+        href="https://maps.app.goo.gl/rmEchPwYYrKuvtVc6"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-primary transition-colors"
+      >
+        Kampus Universitas Nusa Mandiri, Jakarta
+      </a>
+    </li>
+    <li className="flex items-start gap-2.5 text-sm text-gray-400">
+      <Mail size={16} className="mt-0.5 shrink-0 text-gray-500" />
+      <a href="mailto:nusamandirihimsi@gmail.com" className="hover:text-primary transition-colors">
+        nusamandirihimsi@gmail.com
+      </a>
+    </li>
+    <li className="flex items-start gap-2.5 text-sm text-gray-400">
+      <Phone size={16} className="mt-0.5 shrink-0 text-gray-500" />
+      <a
+        href="https://wa.me/6282123544968?text=Halo%20Kak%20Karlos,%20saya%20ingin%20bertanya..."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-primary transition-colors"
+      >
+        Karlos (Humas) — 082123544968
+      </a>
+    </li>
+  </ul>
 
-            <Link
-              href="/pendaftaran"
-              className="inline-flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:shadow-lg hover:brightness-110 transition-all"
-            >
-              Gabung Sekarang
-            </Link>
-          </div>
+  <Link
+    href="/pendaftaran"
+    className="inline-flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:shadow-lg hover:brightness-110 transition-all"
+  >
+    Gabung Sekarang
+  </Link>
+</div>
         </div>
 
         <div className="border-t border-gray-800 pt-8">

@@ -85,10 +85,10 @@ const LITBANG: LitbangMember[] = [
   {
     code: "LTB/04",
     role: "Bendahara",
-    name: "Nama Bendahara",
+    name: "Sabrina Kartika",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
-    instagram: "username",
+    instagram: "iluvcat9",
     photo: "",
     quote: "Mengelola dan melaporkan seluruh arus kas serta anggaran divisi.",
     focus: ["Pengelolaan kas", "Laporan keuangan", "Anggaran kegiatan"],
@@ -97,18 +97,6 @@ const LITBANG: LitbangMember[] = [
   {
     code: "LTB/05",
     role: "Staff litbang",
-    name: "Sabrina Kartika",
-    tanggalLahir: "Tanggal Lahir",
-    angkatan: "Angkatan",
-    instagram: "iluvcat9",
-    photo: "",
-    quote: "Turun langsung mengeksekusi riset dan pengembangan program kerja.",
-    focus: ["Riset lapangan", "Pengembangan konten", "Dukungan teknis"],
-    icon: FlaskConical,
-  },
-  {
-    code: "LTB/06",
-    role: "Staff litbang",
     name: "Khoirul Mustaqim",
     tanggalLahir: "Tanggal Lahir",
     angkatan: "Angkatan",
@@ -116,10 +104,10 @@ const LITBANG: LitbangMember[] = [
     photo: "",
     quote: "Membantu menjalankan riset, uji coba, dan dokumentasi hasil kerja divisi.",
     focus: ["Uji coba program", "Dokumentasi hasil", "Kolaborasi tim"],
-    icon: ClipboardList,
+    icon: FlaskConical,
   },
   {
-    code: "LTB/07",
+    code: "LTB/06",
     role: "Staff litbang",
     name: "Kurnia Rizqi Cipta Saputra",
     tanggalLahir: "Tanggal Lahir",
@@ -205,22 +193,25 @@ function LedgerCard({ member, isOpen, onToggle }: { member: LitbangMember; isOpe
           </div>
         </div>
 
-        <div className="flex flex-row items-center gap-2 border-t pt-3" style={{ borderColor: `${TONE.rule}55` }}>
-          <div className="flex items-center gap-4">
-            <div>
-              <p className="text-[11px]" style={{ color: TONE.inkMuted, fontFamily: MONO }}>
+        {/* flex-row (nowrap default) + grup tanggal/angkatan diberi min-w-0 & flex-1
+            supaya dia yang menyusut/truncate duluan, bukan mendorong badge
+            Instagram sampai overflow keluar kartu. */}
+        <div className="flex flex-row flex-nowrap items-center gap-2 border-t pt-3" style={{ borderColor: `${TONE.rule}55` }}>
+          <div className="flex min-w-0 flex-1 gap-4 overflow-hidden">
+            <div className="min-w-0">
+              <p className="whitespace-nowrap text-[11px]" style={{ color: TONE.inkMuted, fontFamily: MONO }}>
                 Tanggal Lahir
               </p>
               <p className="text-sm truncate" style={{ color: TONE.ink }}>{member.tanggalLahir}</p>
             </div>
-            <div>
-              <p className="text-[11px]" style={{ color: TONE.inkMuted, fontFamily: MONO }}>
+            <div className="min-w-0">
+              <p className="whitespace-nowrap text-[11px]" style={{ color: TONE.inkMuted, fontFamily: MONO }}>
                 Angkatan
               </p>
               <p className="text-sm truncate" style={{ color: TONE.ink }}>{member.angkatan}</p>
             </div>
           </div>
-          
+
           <a
             href={`https://instagram.com/${member.instagram}`}
             target="_blank"

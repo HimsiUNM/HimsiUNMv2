@@ -215,24 +215,29 @@ function ReceiptCard({ member, isOpen, onToggle }: { member: BikrafMember; isOpe
           </div>
         </div>
 
-        <div className="mt-4 flex flex-wrap items-center gap-4 border-t border-dashed pt-3" style={{ borderColor: TONE.rule }}>
-          <div>
-            <p className="text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
-              Tanggal Lahir
-            </p>
-            <p className="text-sm" style={{ color: TONE.ink }}>{member.tanggalLahir}</p>
-          </div>
-          <div>
-            <p className="text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
-              Angkatan
-            </p>
-            <p className="text-sm" style={{ color: TONE.ink }}>{member.angkatan}</p>
+        {/* flex-nowrap supaya badge Instagram tetap sejajar horizontal;
+            grup tanggal+angkatan diberi min-w-0/flex-1 agar dia yang
+            menyusut/truncate duluan kalau ruang sempit. */}
+        <div className="mt-4 flex flex-nowrap items-center gap-3 border-t border-dashed pt-3" style={{ borderColor: TONE.rule }}>
+          <div className="flex min-w-0 flex-1 gap-4 overflow-hidden">
+            <div className="min-w-0">
+              <p className="whitespace-nowrap text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
+                Tanggal Lahir
+              </p>
+              <p className="truncate text-sm" style={{ color: TONE.ink }}>{member.tanggalLahir}</p>
+            </div>
+            <div className="min-w-0">
+              <p className="whitespace-nowrap text-[11px]" style={{ color: TONE.inkMuted, fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
+                Angkatan
+              </p>
+              <p className="truncate text-sm" style={{ color: TONE.ink }}>{member.angkatan}</p>
+            </div>
           </div>
           <a
             href={`https://instagram.com/${member.instagram}`}
             target="_blank"
             rel="noreferrer"
-            className="ml-auto flex items-center gap-1.5 px-2.5 py-1 text-xs"
+            className="flex shrink-0 items-center gap-1.5 px-2.5 py-1 text-xs"
             style={{
               border: `1px solid ${TONE.accent}`,
               color: TONE.accent,
