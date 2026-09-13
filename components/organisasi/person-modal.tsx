@@ -15,11 +15,41 @@ export interface PersonDetail {
   bio?: string;
   instagram?: string;
   instagramUrl?: string;
+  /** Angkatan, mis. "2022" */
+  angkatan?: string;
+  /** Tanggal lahir, mis. "1 Januari 2004" */
+  tanggalLahir?: string;
 }
 
 interface PersonModalProps {
   person: PersonDetail | null;
   onClose: () => void;
+}
+
+interface DetailRowProps {
+  label: string;
+  value: string;
+  href?: string;
+}
+
+function DetailRow({ label, value, href }: DetailRowProps) {
+  return (
+    <div className="flex items-center justify-between gap-3">
+      <span className="text-muted-foreground">{label}</span>
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="truncate text-card-foreground hover:text-primary hover:underline"
+        >
+          {value}
+        </a>
+      ) : (
+        <span className="truncate text-card-foreground">{value}</span>
+      )}
+    </div>
+  );
 }
 
 export function PersonModal({ person, onClose }: PersonModalProps) {
@@ -42,6 +72,9 @@ export function PersonModal({ person, onClose }: PersonModalProps) {
       document.body.style.overflow = original;
     };
   }, [person]);
+
+  const hasDetails =
+    !!person?.angkatan || !!person?.tanggalLahir || !!person?.instagram;
 
   return (
     <AnimatePresence>
@@ -105,25 +138,21 @@ export function PersonModal({ person, onClose }: PersonModalProps) {
                 </p>
               )}
 
-              {person.instagram && (
+              {hasDetails && (
                 <div className="mt-5 w-full space-y-2 border-t border-border pt-4 text-left text-sm">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="text-muted-foreground">Instagram</span>
-                    {person.instagramUrl ? (
-                      <a
-                        href={person.instagramUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="truncate text-card-foreground hover:text-primary hover:underline"
-                      >
-                        {person.instagram}
-                      </a>
-                    ) : (
-                      <span className="truncate text-card-foreground">
-                        {person.instagram}
-                      </span>
-                    )}
-                  </div>
+                  {person.angkatan && (
+                    <DetailRow label="Angkatan" value={person.angkatan} />
+                  )}
+                  {person.tanggalLahir && (
+                    <DetailRow label="Tanggal Lahir" value={person.tanggalLahir} />
+                  )}
+                  {person.instagram && (
+                    <DetailRow
+                      label="Instagram"
+                      value={person.instagram}
+                      href={person.instagramUrl}
+                    />
+                  )}
                 </div>
               )}
             </div>

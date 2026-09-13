@@ -20,13 +20,6 @@ export default function DetailBerita() {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Berita Tidak Ditemukan</h1>
           <p className="text-gray-600 mb-6">Maaf, berita yang Anda cari tidak dapat ditemukan.</p>
-          <Link
-            href="/informasi/berita"
-            className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            <ArrowLeft size={20} />
-            Kembali ke Berita
-          </Link>
         </div>
       </div>
     )
@@ -47,28 +40,6 @@ export default function DetailBerita() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <Link
-              href="/#berita"
-              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors bg-white/50 backdrop-blur rounded-lg px-4 py-2 border border-gray-200"
-            >
-              <ArrowLeft size={20} />
-              Kembali ke Berita
-            </Link>
-
-            <button
-              onClick={shareBerita}
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors bg-white/50 backdrop-blur rounded-lg px-4 py-2 border border-gray-200"
-            >
-              <Share2 size={18} />
-              Bagikan
-            </button>
-          </div>
-        </div>
-      </div>
-
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden mb-8 shadow-xl">
           <img

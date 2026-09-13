@@ -1,5 +1,160 @@
 export const dataBerita = [
   {
+    judul: "Aliansi Ormawa UNM Salurkan Bantuan untuk Mahasiswa Korban Kebakaran Kemayoran",
+    slug: "ormawa-unm-bantuan-kebakaran-kemayoran",
+    tanggal: "22 Juni 2026",
+    waktu: "Fleksibel",
+    lokasi: "Kampus UNM & Kemayoran",
+    peserta: "Perwakilan BEM dan HIMSI",
+    kategori: "Kegiatan Sosial & Solidaritas Kemanusiaan",
+    image: "/bantuan-kebakaran.jpg",
+    deskripsi:
+      "Aliansi Organisasi Mahasiswa (Ormawa) Universitas Nusa Mandiri bergerak cepat menyalurkan bantuan logistik kemanusiaan kepada mahasiswa yang menjadi korban musibah kebakaran di kawasan Kemayoran[cite: 4].",
+    kontenLengkap: `
+      <p style="font-size: 1.125rem; color: #374151; line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500;">
+        Merespons tragedi kebakaran hebat yang menghanguskan pemukiman di Kemayoran pada 1 Juni 2026, kolaborasi antar-Ormawa di UNM yang dimotori oleh BEM dan HIMSI menginisiasi penggalangan dana sosial[cite: 4]. Tepat pada Senin, 22 Juni 2026, donasi kolektif dari civitas akademika tersebut diserahkan langsung kepada salah satu mahasiswa UNM yang turut menjadi korban kehilangan tempat tinggal dalam musibah tersebut[cite: 4].
+      </p>
+
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e5e7eb;">Bentuk Aksi Kepedulian</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem; line-height: 1.625;"></p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem;">
+          <ul style="color: #4b5563; list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.625;">
+            <li style="margin-bottom: 0.5rem;">Koordinasi penggalangan dana secara teratur dengan mendatangi ruang-ruang kelas di lingkungan universitas[cite: 4].</li>
+            <li style="margin-bottom: 0.5rem;">Penyediaan fasilitas kampus untuk dijadikan pusat penampungan dan penyortiran logistik dari dosen, staf, mahasiswa, hingga masyarakat sekitar[cite: 4].</li>
+            <li style="margin-bottom: 0.5rem;">Penyerahan bantuan fokus darurat berupa paket sembako serta berbagai pakaian yang layak pakai[cite: 4].</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e0f2fe; margin: 1.5rem 0;">
+        <p style="color: #1e40af; font-style: normal; margin-bottom: 0.75rem; line-height: 1.5;">
+          "Gerakan ini merupakan bentuk nyata dari penerapan poin kepedulian sosial di kalangan mahasiswa. Diharapkan dukungan logistik yang dikumpulkan secara gotong royong ini dapat membantu memenuhi kebutuhan fisik harian serta memulihkan kondisi psikologis korban agar bisa segera bangkit kembali[cite: 4]."
+        </p>
+        <cite style="color: #6b7280; font-size: 0.875rem; font-style: normal;">- Kezia Tamariska Kohandi, Ketua HIMSI UNM[cite: 4]</cite>
+      </div>
+
+      <p style="color: #4b5563; line-height: 1.625; margin-top: 1.5rem;">
+        Aksi tanggap darurat bencana ini menjadi penegas bahwa rasa persaudaraan dan solidaritas antar mahasiswa di lingkungan kampus Universitas Nusa Mandiri tetap terjaga sangat erat, terutama saat ada anggota keluarga besar yang tertimpa musibah[cite: 4].
+      </p>
+    `
+  },
+  {
+    judul: "AI Workshop UNM: From Basic Algorithm to Real-World Application",
+    slug: "ai-workshop-unm-basic-algorithm",
+    tanggal: "9 Juni 2026",
+    waktu: "10:00 WIB",
+    lokasi: "Kampus Margonda Depok",
+    peserta: "Mahasiswa dan Umum",
+    kategori: "Akademik & Edukasi Teknologi",
+    image: "/ai-workshop.png",
+    deskripsi:
+      "Universitas Nusa Mandiri sukses menyelenggarakan AI Workshop untuk membekali mahasiswa dengan pemahaman dasar algoritma AI hingga penerapannya dalam aplikasi dan dunia nyata[cite: 1, 3].",
+    kontenLengkap: `
+      <p style="font-size: 1.125rem; color: #374151; line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500;">
+        Untuk merespons pesatnya laju perkembangan kecerdasan buatan, Universitas Nusa Mandiri menyelenggarakan AI Workshop pada Selasa, 9 Juni 2026 di Kampus Margonda Depok[cite: 1, 3]. Kegiatan edukatif ini menghadirkan Duwi Cahya Putri Buani, M.Kom. sebagai narasumber utama untuk memberikan pemahaman kepada mahasiswa maupun masyarakat umum mengenai pemecahan masalah dengan pendekatan teknologi berbasis data dan AI[cite: 1, 3].
+      </p>
+
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e5e7eb;">Materi Workshop</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem; line-height: 1.625;"></p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem;">
+          <ul style="color: #4b5563; list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.625;">
+            <li style="margin-bottom: 0.5rem;">Pemahaman konsep dasar meliputi AI Fundamentals dan Algorithm Workflow[cite: 1].</li>
+            <li style="margin-bottom: 0.5rem;">Proses pembuatan sistem mulai dari Model Creation hingga App Integration[cite: 1].</li>
+            <li style="margin-bottom: 0.5rem;">Praktik secara langsung (hands-on project) terkait pengolahan data dan penyusunan logika pemrograman[cite: 1, 3].</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e0f2fe; margin: 1.5rem 0;">
+        <p style="color: #1e40af; font-style: normal; margin-bottom: 0.75rem; line-height: 1.5;">
+          "Workshop ini membantu saya memahami bahwa AI bukan hanya tentang teknologi yang rumit, tetapi juga tentang bagaimana kita memecahkan masalah dengan pendekatan yang tepat[cite: 3]."
+        </p>
+        <cite style="color: #6b7280; font-size: 0.875rem; font-style: normal;">- Salah Satu Peserta Workshop[cite: 3]</cite>
+      </div>
+
+      <p style="color: #4b5563; line-height: 1.625; margin-top: 1.5rem;">
+        Keberhasilan digelarnya acara ini menjadi langkah krusial sekaligus bukti komitmen Universitas Nusa Mandiri sebagai Kampus Digital Bisnis dalam membekali generasi muda dengan literasi teknologi serta skill praktis yang siap digunakan di dunia kerja[cite: 1, 3].
+      </p>
+    `
+  },
+  {
+    judul: "IndonesiaNEXT Roadshow Bekasi",
+    slug: "indonesia-next-roadshow-bekasi",
+    tanggal: "7 Mei 2026",
+    waktu: "10:00 - 13:00 WIB",
+    lokasi: "BINUS BEKASI",
+    peserta: "70+ Mahasiswa",
+    kategori: "Pengembangan Kompetensi Eksternal",
+    image: "/indonesianext.jpg",
+    deskripsi:
+      "HIMSI Universitas Nusa Mandiri sukses menghadiri kegiatan IndonesiaNEXT Roadshow BINUS Bekasi, di mana 9 anggotanya berhasil lolos ke tahap Fast Track Top 1000.",
+    kontenLengkap: `
+      <p style="font-size: 1.125rem; color: #374151; line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500;">
+        Sebagai bagian dari upaya pengembangan kompetensi digital mahasiswa di era teknologi berbasis Artificial Intelligence (AI), sebanyak 14 anggota HIMSI mewakili Universitas Nusa Mandiri menghadiri acara undagan langsung dari Telkomsel pada tanggal 7 Mei 2026. Kehadiran mahasiswa dalam kegiatan ini menjadi bukti tingginya antusiasme serta kemampuan kompetitif mereka dalam bidang teknologi digital.
+      </p>
+      
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #3b82f6;">Rangkaian Kegiatan</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem; line-height: 1.625;"></p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem;">
+          <ul style="color: #4b5563; list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.625;">
+            <li style="margin-bottom: 0.5rem;">Mengikuti On-site AI Training dengan memanfaatkan platform Gemini untuk pembuatan web sederhana.</li>
+            <li style="margin-bottom: 0.5rem;">Menghadiri sesi DigiTalks yang membahas seputar perkembangan industri digital, inovasi, serta peluang karier di bidang teknologi.</li>
+            <li>Pencapaian gemilang 9 mahasiswa HIMSI yang berhasil lolos ke tahap Fast Track Top 1000.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e0f2fe; margin: 1.5rem 0;">
+        <p style="color: #1e40af; font-style: normal; margin-bottom: 0.75rem; line-height: 1.5;">
+          "Di era digital saat ini, pengalaman praktis dan kemampuan adaptasi teknologi menjadi nilai tambah yang penting bagi mahasiswa."
+        </p>
+        <cite style="color: #6b7280; font-size: 0.875rem; font-style: normal;">- Kesimpulan Kegiatan (IndonesiaNEXT)</cite>
+      </div>
+      <p style="color: #4b5563; line-height: 1.625; margin-top: 1.5rem;">
+        Melalui partisipasi pada acara ini, mahasiswa tidak hanya mendapatkan relasi dan pengalaman baru, namun juga merepresentasikan komitmen Universitas Nusa Mandiri dalam mendukung pengembangan keterampilan mahasiswa agar relevan dengan kebutuhan industri masa depan.
+      </p>
+    `,
+  },
+  {
+    judul: "PMinKref HIMSI X HIMMA",
+    slug: "minkref-himsi-himma",
+    tanggal: "4 Juli 2025",
+    waktu: "14:00 - 17:00 WIB",
+    lokasi: "Lab Komputer Kampus B UNM",
+    peserta: "80+ Mahasiswa",
+    kategori: "Workshop Kreatif",
+    image: "/minkref.jpg",
+    deskripsi:
+      "HIMSI Universitas Nusa Mandiri berkolaborasi dengan HIMMA sukses menyelenggarakan MinKref (Mini Kreatif), workshop desain poster.",
+    kontenLengkap: `
+      <p style="font-size: 1.125rem; color: #374151; line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500;">
+        Dalam upaya mengembangkan potensi dan kreativitas mahasiswa di bidang desain grafis, HIMSI berkolaborasi dengan HIMMA sukses menyelenggarakan MinKref (Mini Kreatif), sebuah workshop desain poster yang menghadirkan suasana penuh warna dan inovasi.
+      </p>
+
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #3b82f6;">Materi Workshop</h3>
+      <ul style="color: #4b5563; list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.625;">
+        <li style="margin-bottom: 0.5rem;">Dasar-dasar desain grafis dan tipografi</li>
+        <li style="margin-bottom: 0.5rem;">Pengenalan Canva untuk pemula</li>
+        <li>Praktik langsung membuat poster</li>
+      </ul>
+
+      <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e0f2fe; margin: 1.5rem 0;">
+        <p style="color: #1e40af; font-style: normal; margin-bottom: 0.75rem; line-height: 1.5;">
+          "Workshopnya sangat menyenangkan! Saya yang awalnya tidak bisa desain sama sekali, sekarang bisa membuat poster yang menarik."
+        </p>
+        <cite style="color: #6b7280; font-size: 0.875rem; font-style: normal;">- Sarah, Participant</cite>
+      </div>
+
+      <p style="color: #4b5563; line-height: 1.625;">
+        Melalui MinKref, peserta mendapatkan pengalaman langsung untuk berkreasi sambil bertukar ide, sekaligus menambah wawasan dalam bidang desain grafis.
+      </p>
+    `,
+  },
+  
+  {
     judul: "HIMSI Open Class",
     slug: "himsi-open-class",
     tanggal: "3 Mei - 22 Juni 2025",
@@ -47,42 +202,7 @@ export const dataBerita = [
       </p>
     `,
   },
-  {
-    judul: "Seminar Transformasi Digital",
-    slug: "seminar-transformasi-digital",
-    tanggal: "22 Mei 2025",
-    waktu: "13:00 - 16:30 WIB",
-    lokasi: "Auditorium Kampus A UNM",
-    peserta: "200+ Peserta",
-    kategori: "Seminar & Workshop",
-    image: "/seminar.jpg",
-    deskripsi:
-      "HIMSI Universitas Nusa Mandiri sukses menggelar seminar kolaboratif dengan NIC bertema 'Transformasi Digital: Menyongsong Era Bisnis Berbasis Data dan AI'.",
-    kontenLengkap: `
-      <p style="font-size: 1.125rem; color: #374151; line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500;">
-        Himpunan Mahasiswa Sistem Informasi (HIMSI) Universitas Nusa Mandiri sukses menyelenggarakan seminar kolaborasi bersama Nusa Informatics Community (NIC) dengan tema "Transformasi Digital: Menyongsong Era Bisnis Berbasis Data dan AI".
-      </p>
-
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #3b82f6;">Narasumber Berpengalaman</h3>
-      <ul style="color: #4b5563; list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.625;">
-        <li style="margin-bottom: 0.5rem;">Implementasi Data Analytics dalam bisnis</li>
-        <li style="margin-bottom: 0.5rem;">Strategi AI untuk efisiensi operasional</li>
-        <li style="margin-bottom: 0.5rem;">Transformasi digital perusahaan tradisional</li>
-        <li>Peluang karir di era digital</li>
-      </ul>
-
-      <div style="background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 1.5rem; margin: 2rem 0; border-radius: 0 0.5rem 0.5rem 0;">
-        <p style="color: #1e40af; font-style: normal; font-weight: 500; margin-bottom: 0.5rem;">
-          "Seminar ini membuka wawasan saya tentang bagaimana data dan AI tidak hanya sekadar tren, tetapi sudah menjadi kebutuhan strategis dalam bisnis."
-        </p>
-        <cite style="color: #6b7280; font-size: 0.875rem;">- Peserta Seminar</cite>
-      </div>
-
-      <p style="color: #4b5563; line-height: 1.625;">
-        Melalui terselenggaranya seminar ini, HIMSI Universitas Nusa Mandiri menegaskan komitmennya dalam menghadirkan kegiatan edukatif yang berkualitas dan berkelanjutan.
-      </p>
-    `,
-  },
+  
   {
     judul: "Studi Banding HIMSI UNM X HIMASI STTNF",
     slug: "studi-banding-himsi-unm-himasi-sttnf",
@@ -120,179 +240,43 @@ export const dataBerita = [
       </p>
     `,
   },
+
   {
-    judul: "PMinKref HIMSI X HIMMA",
-    slug: "minkref-himsi-himma",
-    tanggal: "4 Juli 2025",
-    waktu: "14:00 - 17:00 WIB",
-    lokasi: "Lab Komputer Kampus B UNM",
-    peserta: "80+ Mahasiswa",
-    kategori: "Workshop Kreatif",
-    image: "/minkref.jpg",
+    judul: "Seminar Transformasi Digital",
+    slug: "seminar-transformasi-digital",
+    tanggal: "22 Mei 2025",
+    waktu: "13:00 - 16:30 WIB",
+    lokasi: "Auditorium Kampus A UNM",
+    peserta: "200+ Peserta",
+    kategori: "Seminar & Workshop",
+    image: "/seminar.jpg",
     deskripsi:
-      "HIMSI Universitas Nusa Mandiri berkolaborasi dengan HIMMA sukses menyelenggarakan MinKref (Mini Kreatif), workshop desain poster.",
+      "HIMSI Universitas Nusa Mandiri sukses menggelar seminar kolaboratif dengan NIC bertema 'Transformasi Digital: Menyongsong Era Bisnis Berbasis Data dan AI'.",
     kontenLengkap: `
       <p style="font-size: 1.125rem; color: #374151; line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500;">
-        Dalam upaya mengembangkan potensi dan kreativitas mahasiswa di bidang desain grafis, HIMSI berkolaborasi dengan HIMMA sukses menyelenggarakan MinKref (Mini Kreatif), sebuah workshop desain poster yang menghadirkan suasana penuh warna dan inovasi.
+        Himpunan Mahasiswa Sistem Informasi (HIMSI) Universitas Nusa Mandiri sukses menyelenggarakan seminar kolaborasi bersama Nusa Informatics Community (NIC) dengan tema "Transformasi Digital: Menyongsong Era Bisnis Berbasis Data dan AI".
       </p>
 
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #3b82f6;">Materi Workshop</h3>
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #3b82f6;">Narasumber Berpengalaman</h3>
       <ul style="color: #4b5563; list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.625;">
-        <li style="margin-bottom: 0.5rem;">Dasar-dasar desain grafis dan tipografi</li>
-        <li style="margin-bottom: 0.5rem;">Pengenalan Canva untuk pemula</li>
-        <li>Praktik langsung membuat poster</li>
+        <li style="margin-bottom: 0.5rem;">Implementasi Data Analytics dalam bisnis</li>
+        <li style="margin-bottom: 0.5rem;">Strategi AI untuk efisiensi operasional</li>
+        <li style="margin-bottom: 0.5rem;">Transformasi digital perusahaan tradisional</li>
+        <li>Peluang karir di era digital</li>
       </ul>
 
-      <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e0f2fe; margin: 1.5rem 0;">
-        <p style="color: #1e40af; font-style: normal; margin-bottom: 0.75rem; line-height: 1.5;">
-          "Workshopnya sangat menyenangkan! Saya yang awalnya tidak bisa desain sama sekali, sekarang bisa membuat poster yang menarik."
+      <div style="background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 1.5rem; margin: 2rem 0; border-radius: 0 0.5rem 0.5rem 0;">
+        <p style="color: #1e40af; font-style: normal; font-weight: 500; margin-bottom: 0.5rem;">
+          "Seminar ini membuka wawasan saya tentang bagaimana data dan AI tidak hanya sekadar tren, tetapi sudah menjadi kebutuhan strategis dalam bisnis."
         </p>
-        <cite style="color: #6b7280; font-size: 0.875rem; font-style: normal;">- Sarah, Participant</cite>
+        <cite style="color: #6b7280; font-size: 0.875rem;">- Peserta Seminar</cite>
       </div>
 
       <p style="color: #4b5563; line-height: 1.625;">
-        Melalui MinKref, peserta mendapatkan pengalaman langsung untuk berkreasi sambil bertukar ide, sekaligus menambah wawasan dalam bidang desain grafis.
+        Melalui terselenggaranya seminar ini, HIMSI Universitas Nusa Mandiri menegaskan komitmennya dalam menghadirkan kegiatan edukatif yang berkualitas dan berkelanjutan.
       </p>
     `,
   },
-  {
-    judul: "HIMSI Data Science Camp",
-    slug: "himsi-data-science-camp",
-    tanggal: "20 Juli 2025",
-    waktu: "09:00 - 16:00 WIB",
-    lokasi: "Lab Komputer Kampus A UNM",
-    peserta: "60+ Mahasiswa",
-    kategori: "Program Pembelajaran",
-    image: "/placeholder.svg",
-    deskripsi:
-      "HIMSI menggelar Data Science Camp sehari penuh untuk mengenalkan mahasiswa pada dunia analisis data dan machine learning dasar.",
-    kontenLengkap: `
-      <p style="font-size: 1.125rem; color: #374151; line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500;">
-        HIMSI Universitas Nusa Mandiri menyelenggarakan Data Science Camp, sebuah program intensif satu hari yang bertujuan mengenalkan mahasiswa pada dasar-dasar analisis data dan machine learning.
-      </p>
+  
 
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #3b82f6;">Materi yang Dibahas</h3>
-      <ul style="color: #4b5563; list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.625;">
-        <li style="margin-bottom: 0.5rem;">Pengenalan Python untuk Data Science</li>
-        <li style="margin-bottom: 0.5rem;">Data cleaning dan visualisasi</li>
-        <li>Studi kasus machine learning sederhana</li>
-      </ul>
-
-      <p style="color: #4b5563; line-height: 1.625;">
-        Peserta mendapatkan pengalaman hands-on dalam mengolah dataset nyata, dari tahap pembersihan data hingga membangun model prediksi sederhana bersama mentor yang berpengalaman di industri.
-      </p>
-    `,
-  },
-  {
-    judul: "HIMSI Cyber Security Talk",
-    slug: "himsi-cyber-security-talk",
-    tanggal: "12 Agustus 2025",
-    waktu: "13:00 - 15:30 WIB",
-    lokasi: "Auditorium Kampus A UNM",
-    peserta: "120+ Peserta",
-    kategori: "Seminar & Workshop",
-    image: "/placeholder.svg",
-    deskripsi:
-      "Talkshow bersama praktisi keamanan siber membahas ancaman digital terkini dan cara melindungi data pribadi.",
-    kontenLengkap: `
-      <p style="font-size: 1.125rem; color: #374151; line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500;">
-        HIMSI Universitas Nusa Mandiri menggelar Cyber Security Talk, menghadirkan praktisi keamanan siber untuk membahas ancaman digital terkini dan langkah-langkah perlindungan data pribadi di era digital.
-      </p>
-
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #3b82f6;">Topik Bahasan</h3>
-      <ul style="color: #4b5563; list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.625;">
-        <li style="margin-bottom: 0.5rem;">Jenis-jenis serangan siber yang umum terjadi</li>
-        <li style="margin-bottom: 0.5rem;">Best practice keamanan data pribadi</li>
-        <li>Peluang karier di bidang cyber security</li>
-      </ul>
-
-      <p style="color: #4b5563; line-height: 1.625;">
-        Diskusi berlangsung interaktif dengan peserta yang antusias bertanya seputar praktik keamanan digital yang bisa diterapkan sehari-hari.
-      </p>
-    `,
-  },
-  {
-    judul: "HIMSI Startup Talk",
-    slug: "himsi-startup-talk",
-    tanggal: "5 September 2025",
-    waktu: "13:00 - 16:00 WIB",
-    lokasi: "Auditorium Kampus A UNM",
-    peserta: "150+ Peserta",
-    kategori: "Seminar & Workshop",
-    image: "/placeholder.svg",
-    deskripsi:
-      "Sharing session bersama founder startup teknologi lokal seputar perjalanan membangun bisnis digital dari nol.",
-    kontenLengkap: `
-      <p style="font-size: 1.125rem; color: #374151; line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500;">
-        HIMSI Universitas Nusa Mandiri menghadirkan HIMSI Startup Talk, sesi sharing bersama founder startup teknologi lokal yang berbagi perjalanan membangun bisnis digital dari nol.
-      </p>
-
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #3b82f6;">Poin Diskusi</h3>
-      <ul style="color: #4b5563; list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.625;">
-        <li style="margin-bottom: 0.5rem;">Proses validasi ide bisnis</li>
-        <li style="margin-bottom: 0.5rem;">Tantangan mencari pendanaan startup</li>
-        <li>Tips membangun tim yang solid</li>
-      </ul>
-
-      <p style="color: #4b5563; line-height: 1.625;">
-        Peserta mendapatkan gambaran nyata tentang dunia startup, mulai dari kegagalan yang dihadapi hingga strategi bertahan di industri yang kompetitif.
-      </p>
-    `,
-  },
-  {
-    judul: "HIMSI Photography Workshop",
-    slug: "himsi-photography-workshop",
-    tanggal: "18 Oktober 2025",
-    waktu: "09:00 - 12:00 WIB",
-    lokasi: "Taman Kampus UNM",
-    peserta: "40+ Mahasiswa",
-    kategori: "Workshop Kreatif",
-    image: "/placeholder.svg",
-    deskripsi:
-      "Workshop fotografi dasar menggunakan smartphone, membahas komposisi, pencahayaan, dan editing sederhana.",
-    kontenLengkap: `
-      <p style="font-size: 1.125rem; color: #374151; line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500;">
-        HIMSI menyelenggarakan Photography Workshop yang mengajarkan dasar-dasar fotografi menggunakan smartphone, cocok bagi mahasiswa yang ingin mengasah kemampuan konten visual.
-      </p>
-
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #3b82f6;">Materi Workshop</h3>
-      <ul style="color: #4b5563; list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.625;">
-        <li style="margin-bottom: 0.5rem;">Teknik komposisi foto (rule of thirds, framing)</li>
-        <li style="margin-bottom: 0.5rem;">Memanfaatkan pencahayaan alami</li>
-        <li>Editing dasar menggunakan aplikasi mobile</li>
-      </ul>
-
-      <p style="color: #4b5563; line-height: 1.625;">
-        Peserta langsung praktik hunting foto di area kampus dan mendapatkan feedback langsung dari mentor mengenai hasil jepretan mereka.
-      </p>
-    `,
-  },
-  {
-    judul: "HIMSI Public Speaking Class",
-    slug: "himsi-public-speaking-class",
-    tanggal: "9 November 2025",
-    waktu: "13:00 - 16:00 WIB",
-    lokasi: "Ruang Serbaguna Kampus A UNM",
-    peserta: "70+ Mahasiswa",
-    kategori: "Program Pembelajaran",
-    image: "/placeholder.svg",
-    deskripsi:
-      "Kelas pengembangan diri untuk melatih kepercayaan diri dan kemampuan berbicara di depan umum.",
-    kontenLengkap: `
-      <p style="font-size: 1.125rem; color: #374151; line-height: 1.75; margin-bottom: 1.5rem; font-weight: 500;">
-        HIMSI Universitas Nusa Mandiri mengadakan Public Speaking Class untuk membantu mahasiswa melatih kepercayaan diri dan kemampuan berbicara di depan umum, skill penting yang sering dibutuhkan di dunia kerja.
-      </p>
-
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #3b82f6;">Materi Kelas</h3>
-      <ul style="color: #4b5563; list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.625;">
-        <li style="margin-bottom: 0.5rem;">Teknik mengatasi rasa gugup</li>
-        <li style="margin-bottom: 0.5rem;">Struktur penyampaian presentasi yang efektif</li>
-        <li>Praktik langsung di depan kelas dengan feedback mentor</li>
-      </ul>
-
-      <p style="color: #4b5563; line-height: 1.625;">
-        Kelas ini ditutup dengan sesi praktik presentasi individu, di mana setiap peserta mendapat kesempatan tampil dan menerima masukan langsung untuk perbaikan.
-      </p>
-    `,
-  },
 ]

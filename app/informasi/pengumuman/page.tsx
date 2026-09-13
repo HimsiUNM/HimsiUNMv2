@@ -24,7 +24,7 @@ export default function Pengumuman() {
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">Pengumuman</h2>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {dataPengumuman.map((item, idx) => (
+          {dataPengumuman.map((item: any, idx) => (
             <article
               key={idx}
               className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow fade-in group"
@@ -55,7 +55,7 @@ export default function Pengumuman() {
                   onClick={() => setSelectedBerita(item)}
                   className="text-primary font-semibold text-sm hover:gap-2 flex items-center gap-1 transition-all"
                 >
-                  Baca Selengkapnya →
+                  
                 </button>
               </div>
             </article>
