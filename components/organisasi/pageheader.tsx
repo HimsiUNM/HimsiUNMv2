@@ -19,7 +19,7 @@ export function PageHeader() {
         transition={{ duration: 0.45, delay: 0.05, ease: "easeOut" }}
         className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl"
       >
-        Struktur Organisasi
+        Struktur Organisasi BPI
       </motion.h1>
 
       {/* aksen garis kecil — signature element halaman ini */}
@@ -38,8 +38,7 @@ export function PageHeader() {
         transition={{ duration: 0.45, delay: 0.15, ease: "easeOut" }}
         className="mt-5 text-sm leading-relaxed text-muted-foreground sm:text-base"
       >
-        Mengenal struktur kepengurusan HIMSI dan susunan pengurus yang
-        menjalankan setiap program kerja organisasi.
+        Mengenal Badan Pengurus Inti (BPI) HIMSI sebagai unsur kepengurusan yang berperan dalam mengoordinasikan, mengelola, dan mengarahkan jalannya organisasi serta memastikan setiap program kerja dapat terlaksana dengan baik.
       </motion.p>
     </div>
   );

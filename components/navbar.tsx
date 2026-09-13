@@ -78,7 +78,7 @@ const navLinks: NavLink[] = [
     children: [
       {
         href: "/kepengurusan/struktur-organisasi",
-        label: "Struktur Organisasi",
+        label: "Struktur Organisasi BPI",
         description: "Susunan pengurus periode ini",
         icon: Network,
       },

@@ -10,35 +10,37 @@ export default function Kegiatan() {
   const benefits = [
     {
       image: "/logonasi.png",
-      photo: "/foto-nasi.jpg",
+      photo: "/ragunan1.0.jpg",
       title: "NASI",
       description:
         "NASI (Nongkrong Asik Sistem Informasi) merupakan kegiatan rutin HIMSI yang dilaksanakan setiap tiga bulan sekali sebagai ajang silaturahmi dan penguatan relasi antaranggota melalui pertemuan santai di luar kampus. Kegiatan ini bersifat non-formal dan dirancang untuk mendorong interaksi yang lebih dekat melalui sesi berbagi pengalaman kuliah, diskusi ringan, dan sharing session yang memberikan ruang bagi anggota untuk bertukar wawasan serta saling mendukung. NASI menjadi sarana bonding yang efektif untuk memperkuat kekompakan, komunikasi, dan rasa kebersamaan dalam lingkungan HIMSI.",
     },
     {
       image: "/logoseminar.png",
-      photo: "/foto-seminar.jpg",
+      photo: "/ngajar.jpg",
       title: "Seminar",
       description:
         "Seminar HIMSI merupakan kegiatan yang bertujuan meningkatkan wawasan dan kompetensi mahasiswa Sistem Informasi melalui pemaparan materi oleh narasumber berpengalaman. Acara ini membahas topik-topik relevan seputar teknologi, pengembangan diri, dan dunia kerja, serta dilengkapi sesi diskusi interaktif dan tanya jawab. Melalui seminar ini, HIMSI berupaya mendukung pengembangan akademik dan soft skill anggotanya dalam lingkungan belajar yang informatif.",
     },
     {
       image: "/workshop.png",
-      photo: "/foto-workshop.jpg",
+      photo: "/bootcamp.jpg",
       title: "Workshop",
       description:
         "Workshop HIMSI merupakan kegiatan pembelajaran praktis yang dirancang untuk meningkatkan keterampilan teknis dan pemahaman aplikatif mahasiswa Sistem Informasi. Melalui sesi pelatihan yang dipandu oleh instruktur atau praktisi berpengalaman, peserta mendapatkan kesempatan untuk mempraktikkan materi secara langsung, mulai dari pengenalan konsep hingga penerapan pada studi kasus nyata. Workshop ini bertujuan memperkuat kompetensi mahasiswa dalam bidang teknologi dan pengembangan diri, sekaligus mendukung terciptanya lingkungan belajar yang aktif, kolaboratif, dan berorientasi pada penguasaan keterampilan.",
     },
     {
-      image: "/logomakrab.png",
-      photo: "/foto-makrab.jpg",
-      title: "Makrab",
+      image:
+        "/studygroup.jfif",
+      photo:
+        "/studygroup.png",
+      title: "Study Group",
       description:
-        "MAKRAB (Malam Keakraban) HIMSI merupakan kegiatan tahunan yang diselenggarakan setelah pergantian kepengurusan dan penerimaan pengurus baru. Acara ini dilaksanakan di luar kampus selama satu hari satu malam sebagai sarana membangun keakraban, kekompakan, dan komunikasi yang solid antar–pengurus HIMSI. Melalui rangkaian aktivitas kebersamaan, permainan, dan sesi interaksi yang bersifat non-formal, MAKRAB berfungsi sebagai momen penting untuk mempererat hubungan internal serta memperkuat bonding dalam mempersiapkan kolaborasi dan kinerja kepengurusan HIMSI di periode berikutnya.",
+        "Study Group HIMSI merupakan kegiatan belajar bersama yang mempertemukan mahasiswa dari berbagai angkatan Sistem Informasi dalam suasana santai namun tetap produktif. Kegiatan ini menjadi wadah untuk saling berbagi ilmu, membahas materi perkuliahan, tugas, maupun topik teknologi terkini, sekaligus mempererat hubungan antar-angkatan melalui diskusi dan sharing pengalaman. Melalui Study Group, mahasiswa senior dapat menularkan pengetahuan dan pengalamannya kepada adik tingkat, sementara mahasiswa baru mendapatkan bimbingan serta motivasi belajar. Kegiatan ini diharapkan mampu menumbuhkan budaya belajar kolaboratif serta mempererat kekeluargaan di lingkungan HIMSI.",
     },
     {
       image: "/stuban.png",
-      photo: "/foto-stuban.jpg",
+      photo: "/stubanHimsi.jpg",
       title: "Studi Banding",
       description:
         "Studi Banding HIMSI merupakan kegiatan yang diselenggarakan sebagai upaya memperluas wawasan organisasi melalui pertukaran informasi, pengalaman, serta praktik terbaik dengan Himpunan Mahasiswa Sistem Informasi dari kampus lain. Kegiatan ini mencakup pemaparan program kerja, diskusi terkait manajemen organisasi, berbagi strategi pengembangan himpunan, serta sesi tanya jawab yang bersifat kolaboratif. Melalui studi banding, HIMSI bertujuan meningkatkan kualitas tata kelola organisasi, memperkuat relasi antarhimpunan, dan membuka peluang kerja sama yang bermanfaat untuk pengembangan kepengurusan di periode mendatang.",

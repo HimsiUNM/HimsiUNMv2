@@ -25,10 +25,10 @@ export default function KegiatanRingkasan() {
         "Kegiatan pembelajaran praktis untuk meningkatkan keterampilan teknis dan pemahaman aplikatif mahasiswa.",
     },
     {
-      image: "/logomakrab.png",
-      title: "Makrab",
+        image: "/studygroup.jfif",
+        title: "Study Group",
       description:
-        "Kegiatan tahunan setelah pergantian kepengurusan untuk membangun keakraban dan kekompakan antar-pengurus.",
+        "Kegiatan belajar bareng antar angkatan untuk saling berbagi ilmu, membahas materi kuliah, dan mempererat kekeluargaan HIMSI.",
     },
     {
       image: "/stuban.png",

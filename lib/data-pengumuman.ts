@@ -27,6 +27,6 @@ export const dataPengumuman = [
   { 
     judul: "Studi Banding HIMSI UNM X HIMASI STTNF", 
     tanggal: "14 Juni 2025", 
-    image: "/stubanHIMSI.jpg" 
+    image: "/stubanHimsi.jpg" 
   }
 ]

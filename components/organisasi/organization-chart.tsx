@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { PositionCard } from "./position-card";
 import { DepartmentCard } from "./department-card";
@@ -73,76 +74,59 @@ export const bpi = [
 ];
 
 // Data Departemen
+// `slug` dipakai untuk navigasi ke /kepengurusan/divisi/[slug] (samain dengan link di Navbar)
 export const departments = [
   {
     name: "PSDM",
-    description: "Kepala Departemen PSDM",
-    leader: "Akhdan Faqih Athallah",
-    angkatan: "2024",
-    tanggalLahir: "4/11/2006",
-    instagram: "@hyy_adan",
-    instagramUrl: "https://instagram.com/hyy_adan",
-    image: "/psdm/35.png",
-    bio: "Kepala Departemen Pengembangan Sumber Daya Manusia",
+    slug: "psdm",
+    leader: "Departemen PSDM",
+    description: "Departemen PSDM",
+    image: "/logodivisi/psdm.jpg",
+    bio: "Departemen Pengembangan Sumber Daya Manusia",
   },
   {
     name: "Bikraf",
-    description: "Kepala Departemen Bikraf",
-    leader: "Ayu Febriyanti",
-    angkatan: "2024",
-    tanggalLahir: "2/27/2005",
-    instagram: "@pisces_girl_27",
-    instagramUrl: "https://instagram.com/pisces_girl_27",
-    image: "/bikraf/76.png",
-    bio: "Kepala Departemen Bisnis Kreatif",
+    slug: "bikraf",
+    leader: "Departemen Bikraf",
+    description: "Departemen Bikraf",
+    image: "/logodivisi/bikraf.jpg",
+    bio: "Departemen Bisnis Kreatif",
   },
   {
     name: "Litbang",
-    description: "Kepala Departemen Litbang",
-    leader: "Rizqi Fauzi",
-    angkatan: "2024",
-    tanggalLahir: "28/03/2006",
-    instagram: "@rizqifau__",
-    instagramUrl: "https://instagram.com/rizqifau__",
-    image: "/litbang/67.png",
-    bio: "Kepala Departemen Penelitian dan Pengembangan",
+    slug: "litbang",
+    leader: "Departemen Litbang",
+    description: "Departemen Litbang",
+    image: "/logodivisi/litbang.jpg",
+    bio: "Departemen Penelitian dan Pengembangan",
   },
   {
     name: "Humas",
-    description: "Kepala Departemen Humas",
-    leader: "Karlos Nanriano S",
-    angkatan: "2024",
-    tanggalLahir: "6/30/2006",
-    instagram: "@karlosns_",
-    instagramUrl: "https://instagram.com/karlosns_",
-    image: "/humas/52.png",
-    bio: "Kepala Departemen Hubungan Masyarakat",
+    slug: "humas",
+    leader: "Departemen Humas",
+    description: "Departemen Humas",
+    image: "/logodivisi/humas.jpg",
+    bio: "Departemen Hubungan Masyarakat",
   },
   {
     name: "Pubdoc",
-    description: "Kepala Departemen Pubdoc",
-    leader: "Farhan Naufal Idris",
-    angkatan: "2024",
-    tanggalLahir: "3/13/2006",
-    instagram: "@hannnaufl",
-    instagramUrl: "https://instagram.com/hannnaufl",
-    image: "/pubdok/21.png",
-    bio: "Kepala Departemen Publikasi dan Dokumentasi",
+    // catatan: nama datanya "Pubdoc" tapi route di Navbar pakai "pubdok"
+    slug: "pubdok",
+    leader: "Departemen Pubdoc",
+    description: "Departemen Pubdoc",
+    image: "/logodivisi/pubdok.jpg",
+    bio: "Departemen Publikasi dan Dokumentasi",
   },
 ];
 
-// Helper: bangun PersonDetail dari data BPI atau Departemen
+// Helper: bangun PersonDetail dari data BPI (dipakai untuk modal BPI saja)
 function toPersonDetail(
-  entry:
-    | (typeof bpi)[number]
-    | ((typeof departments)[number] & { position?: never }),
+  entry: (typeof bpi)[number],
   overrides: Partial<PersonDetail> = {},
 ): PersonDetail {
-  const isBpiEntry = "position" in entry;
-
   return {
-    name: isBpiEntry ? entry.name : entry.leader,
-    role: isBpiEntry ? entry.position ?? "" : "",
+    name: entry.name,
+    role: entry.position ?? "",
     image: entry.image,
     bio: entry.bio,
     instagram: entry.instagram,
@@ -155,6 +139,7 @@ function toPersonDetail(
 
 export function OrganizationChart() {
   const [selected, setSelected] = useState<PersonDetail | null>(null);
+  const router = useRouter();
 
   // Tier BPI: Ketua sendiri di atas, Wakil Ketua sendiri di bawahnya,
   // lalu Sekretaris 1&2 + Bendahara 1&2 sejajar di level berikutnya.
@@ -163,13 +148,9 @@ export function OrganizationChart() {
   const selectBpi = (item: (typeof bpi)[number]) =>
     setSelected(toPersonDetail(item, { group: "BPI" }));
 
-  const selectDepartment = (dept: (typeof departments)[number]) =>
-    setSelected(
-      toPersonDetail(dept, {
-        role: `Kepala Departemen ${dept.name}`,
-        group: dept.name,
-      }),
-    );
+  // Departemen: klik langsung diarahkan ke halaman departemen, tidak buka modal
+  const goToDepartment = (dept: (typeof departments)[number]) =>
+    router.push(`/kepengurusan/divisi/${dept.slug}`);
 
   return (
     <div className="w-full">
@@ -223,7 +204,7 @@ export function OrganizationChart() {
                   key={dept.name}
                   data={dept}
                   index={i}
-                  onSelect={() => selectDepartment(dept)}
+                  onSelect={() => goToDepartment(dept)}
                 />
               ))}
             </TreeBranch>
@@ -284,13 +265,14 @@ export function OrganizationChart() {
                 key={dept.name}
                 data={dept}
                 index={i}
-                onSelect={() => selectDepartment(dept)}
+                onSelect={() => goToDepartment(dept)}
               />
             ))}
           </VerticalStack>
         </div>
       </div>
 
+      {/* Modal cuma dipakai untuk BPI, departemen langsung navigasi */}
       <PersonModal person={selected} onClose={() => setSelected(null)} />
     </div>
   );

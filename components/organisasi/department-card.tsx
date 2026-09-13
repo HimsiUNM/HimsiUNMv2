@@ -35,9 +35,6 @@ export function DepartmentCard({ data, index = 0, onSelect }: DepartmentCardProp
       <p className="mt-3 text-xs font-semibold leading-tight text-primary sm:text-sm">
         {data.name}
       </p>
-      <p className="mt-1 text-xs leading-tight text-card-foreground sm:text-sm">
-        {data.leader}
-      </p>
       <p className="mt-1.5 line-clamp-2 text-[11px] leading-snug text-muted-foreground sm:text-xs">
         {data.description}
       </p>
