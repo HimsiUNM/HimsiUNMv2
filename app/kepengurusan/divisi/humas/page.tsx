@@ -124,6 +124,18 @@ const HUMAS: HumasMember[] = [
     focus: ["Penyebaran informasi", "Media sosial", "Jaringan publik"],
     icon: Globe2,
   },
+    {
+    code: "HMS/07",
+    role: "Staff humas",
+    name: "Muhammad Dafi Sakhi",
+    tanggalLahir: "15/01/2006",
+    angkatan: "2024",
+    instagram: "@dafvskhh",
+    photo: "",
+    quote: "Menyebarluaskan informasi organisasi ke publik secara luas.",
+    focus: ["Penyebaran informasi", "Media sosial", "Jaringan publik"],
+    icon: Globe2,
+  },
 ]
 
 function PhotoSlot({ member }: { member: HumasMember }) {

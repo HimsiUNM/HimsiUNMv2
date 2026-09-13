@@ -125,6 +125,18 @@ const BIKRAF: BikrafMember[] = [
     focus: ["Operasional jualan", "Layanan pembeli", "Promosi produk"],
     icon: ShoppingBag,
   },
+  {
+    code: "BKF/07",
+    role: "Staff bikraf",
+    name: "Syafiq Muhammad Humami",
+    tanggalLahir: "-",
+    angkatan: "2024",
+    instagram: "@zfxxmh",
+    photo: "",
+    quote: "Menjalankan operasional penjualan dan menjaga hubungan dengan pembeli.",
+    focus: ["Operasional jualan", "Layanan pembeli", "Promosi produk"],
+    icon: ShoppingBag,
+  },
 ]
 
 function PhotoSlot({ member }: { member: BikrafMember }) {
