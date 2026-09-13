@@ -110,7 +110,7 @@ const PUBDOK: PubdokMember[] = [
     tanggalLahir: "-",
     angkatan: "2025",
     instagram: "_yuddf",
-    photo: "/pubdok/31.png",
+    photo: "/pubdok/32.png",
     quote: "Merancang tata letak publikasi dan menjaga konsistensi visual.",
     focus: ["Desain publikasi", "Tata letak konten", "Konsistensi visual"],
     icon: LayoutGrid,
